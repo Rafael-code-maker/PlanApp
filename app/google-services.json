@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "201829087429",
+    "project_id": "cryptomanager-4716c",
+    "storage_bucket": "cryptomanager-4716c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201829087429:android:d7f49debb96ea2116598ac",
+        "android_client_info": {
+          "package_name": "com.android.cryptomanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201829087429-ptbu40u55dg9o1k3igpdlumvhk389c6s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.cryptomanager",
+            "certificate_hash": "06f7af6310b8cdafdb5edfb04f125acebab6b67d"
+          }
+        },
+        {
+          "client_id": "201829087429-rpemp03ko3kv541i8u97a3314qu02pr3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhzWTewwafJ0v1snGgD1MYLu7Uk5OrCJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201829087429-rpemp03ko3kv541i8u97a3314qu02pr3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,7 +10,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.cryptomanager"
+        applicationId "com.android.cryptomanager"
         minSdk 26
         targetSdk 31
         versionCode 1
@@ -69,5 +69,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
     implementation 'com.google.firebase:protolite-well-known-types:18.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-auth-ktx'
 
 }
