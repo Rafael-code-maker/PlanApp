@@ -1,8 +1,8 @@
-package com.example.cryptomanager.login.view
+package com.android.cryptomanager.login.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cryptomanager.databinding.InitialActivityBinding
+import com.android.cryptomanager.databinding.InitialActivityBinding
 
 class InitialActivity : AppCompatActivity() {
 
@@ -12,8 +12,6 @@ class InitialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = InitialActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
     }
 
 }

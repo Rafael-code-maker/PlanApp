@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageViewLogoGringotts"
+        android:id="@+id/imageViewLogoCryptoManager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="100dp"
