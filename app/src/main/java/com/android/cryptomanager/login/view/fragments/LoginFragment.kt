@@ -38,13 +38,15 @@ class LoginFragment : Fragment() {
 
     private fun launchSignInFlow() {
         val providers = arrayListOf(
-            AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build()
+            AuthUI.IdpConfig.GoogleBuilder().build()
         )
 
         startActivityForResult(
             AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
+                //.setLogo(R.drawable.logo_bitcoin) // Set logo drawable
+                //.setTheme(R.style.ThemeOverlay_AppCompat) // Set theme
                 .build(),
             SIGN_IN_REQUEST_CODE
         )

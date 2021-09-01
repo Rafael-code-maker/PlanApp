@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CryptoManager</string>
+    <string name="title">Crypto Manager</string>
 </resources>
