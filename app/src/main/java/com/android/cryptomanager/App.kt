@@ -1,7 +1,7 @@
 package com.android.cryptomanager
 
 import android.app.Application
-import initialModule
+import homeModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -10,7 +10,7 @@ class App : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@App)
-            modules(listOf(initialModule))
+            modules(listOf(homeModule))
         }
     }
 }

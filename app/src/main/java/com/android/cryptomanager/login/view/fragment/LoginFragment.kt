@@ -1,4 +1,4 @@
-package com.android.cryptomanager.login.view.fragments
+package com.android.cryptomanager.login.view.fragment
 
 import android.app.Activity
 import android.content.Intent

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.CryptoManager">
 
         <activity
-            android:name="com.android.cryptomanager.login.view.InitialActivity"
+            android:name="com.android.cryptomanager.login.view.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
