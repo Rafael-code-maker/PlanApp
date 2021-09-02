@@ -8,5 +8,10 @@
         android:id="@+id/loginFragment"
         android:name="com.android.cryptomanager.login.view.fragment.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_home_navigation"
+            app:destination="@id/home_navigation" />
+    </fragment>
+    <include app:graph="@navigation/home_navigation" />
 </navigation>

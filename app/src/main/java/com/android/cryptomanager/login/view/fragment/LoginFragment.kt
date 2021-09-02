@@ -8,10 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.android.cryptomanager.R
 import com.android.cryptomanager.databinding.LoginFragmentBinding
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
-import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginFragment : Fragment() {
@@ -58,10 +59,7 @@ class LoginFragment : Fragment() {
         if (requestCode == SIGN_IN_REQUEST_CODE) {
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK) {
-                Log.i(
-                    TAG,
-                    "Successfully signed in user ${FirebaseAuth.getInstance().currentUser?.displayName}!"
-                )
+                findNavController().navigate(R.id.action_loginFragment_to_home_navigation)
             } else {
                 Log.i(TAG, "Sign in unsuccessful ${response?.error?.errorCode}")
             }

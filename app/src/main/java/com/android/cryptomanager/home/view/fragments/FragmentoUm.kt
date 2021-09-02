@@ -12,6 +12,7 @@ import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
 
 
 class FragmentoUm : Fragment() {
@@ -43,7 +44,7 @@ class FragmentoUm : Fragment() {
 
         //remove the description label on the lower left corner, default true if not set
         pieChart!!.description.isEnabled = false
-
+        pieChart!!.legend.isEnabled = false
         //enabling the user to rotate the chart, default true
         pieChart!!.isRotationEnabled = true
         //adding friction when rotating the pie chart
@@ -56,34 +57,28 @@ class FragmentoUm : Fragment() {
         //adding animation so the entries pop up from 0 degree
         pieChart!!.animateY(1400, Easing.EaseInOutQuad)
         //setting the color of the hole in the middle, default white
-        pieChart!!.setHoleColor(Color.parseColor("#000000"))
+        pieChart!!.setHoleColor(Color.parseColor("#FFFFFF"))
     }
 
     private fun showPieChart() {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
-        val label = "type"
+        val label = ""
 
         //initializing data
         val typeAmountMap: MutableMap<String, Int> = HashMap()
-        typeAmountMap["Toys"] = 200
-        typeAmountMap["Snacks"] = 230
-        typeAmountMap["Clothes"] = 100
-        typeAmountMap["Stationary"] = 500
-        typeAmountMap["Phone"] = 50
+        typeAmountMap["Bitcoin"] = 500
+        typeAmountMap["Ethereum"] = 1000
+        typeAmountMap["Chiliz"] = 650
 
         //initializing colors for the entries
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#304567"))
         colors.add(Color.parseColor("#309967"))
         colors.add(Color.parseColor("#476567"))
-        colors.add(Color.parseColor("#890567"))
-        colors.add(Color.parseColor("#a35567"))
-        colors.add(Color.parseColor("#ff5f67"))
-        colors.add(Color.parseColor("#3ca567"))
 
         //input data and fit data into pie chart entry
         for (type in typeAmountMap.keys) {
-            pieEntries.add(PieEntry(typeAmountMap[type]!!.toFloat(), type))
+            pieEntries.add(PieEntry(typeAmountMap[type]!!.toFloat()))
         }
 
         //collecting the entries with label name
@@ -92,10 +87,13 @@ class FragmentoUm : Fragment() {
         pieDataSet.valueTextSize = 12f
         //providing color list for coloring different entries
         pieDataSet.colors = colors
+        //
+        pieDataSet.valueTextColor = Color.WHITE
         //grouping the data set from entry to chart
         val pieData = PieData(pieDataSet)
         //showing the value of the entries, default true if not set
-        pieData.setDrawValues(true)
+        pieData.setDrawValues(false)
+        pieData.setValueFormatter(PercentFormatter(pieChart))
         pieChart!!.data = pieData
         pieChart!!.invalidate()
     }

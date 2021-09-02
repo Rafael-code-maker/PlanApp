@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">CryptoManager</string>
     <string name="title">Crypto Manager</string>
+    <string name="initial_value">R$ 12.000,00</string>
+    <string name="btc_abbreviation">BTC</string>
+    <string name="eth_abbreviation">ETH</string>
+    <string name="chz_abbreviation">CHZ</string>
+    <string name="invested">Total investido:</string>
+    <string name="invested_default_value">R$ 300.000,00</string>
+    <string name="value_on_actual_cotation">Valor na cotação atual :</string>
+    <string name="actual_cotation_value">R$ 348.000,00</string>
 </resources>
