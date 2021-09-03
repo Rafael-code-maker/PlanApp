@@ -2,7 +2,7 @@ package com.android.cryptomanager.home.view.fragments
 
 import androidx.fragment.app.Fragment
 
-class FragmentoDois : Fragment() {
+class InvestimentosFragment : Fragment() {
 
 //    private var _binding: LoginFragmentBinding? = null
 //    private val binding get() = _binding!!

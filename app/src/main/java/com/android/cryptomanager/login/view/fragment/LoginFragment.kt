@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
         if (requestCode == SIGN_IN_REQUEST_CODE) {
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK) {
-                findNavController().navigate(R.id.action_loginFragment_to_home_navigation)
+                findNavController().navigate(R.id.action_loginFragment_to_homeActivity)
             } else {
                 Log.i(TAG, "Sign in unsuccessful ${response?.error?.errorCode}")
             }

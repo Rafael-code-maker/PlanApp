@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.android.cryptomanager.databinding.FragmentoumFragmentBinding
+import com.android.cryptomanager.databinding.OverviewFragmentBinding
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -15,9 +15,9 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 
 
-class FragmentoUm : Fragment() {
+class OverviewFragment : Fragment() {
 
-    private var _binding: FragmentoumFragmentBinding? = null
+    private var _binding: OverviewFragmentBinding? = null
     private val binding get() = _binding!!
 
     var pieChart: PieChart? = null
@@ -27,7 +27,7 @@ class FragmentoUm : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentoumFragmentBinding.inflate(layoutInflater)
+        _binding = OverviewFragmentBinding.inflate(layoutInflater)
         pieChart = binding.pieChartView
         return binding.root
     }

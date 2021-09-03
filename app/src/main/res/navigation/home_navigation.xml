@@ -3,11 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_navigation"
-    app:startDestination="@id/fragmentoUm">
+    app:startDestination="@id/overviewFragment">
 
     <fragment
-        android:id="@+id/fragmentoUm"
-        android:name="com.android.cryptomanager.home.view.fragments.FragmentoUm"
+        android:id="@+id/overviewFragment"
+        android:name="com.android.cryptomanager.home.view.fragments.OverviewFragment"
         android:label="FragmentoUm"
-        tools:layout="@layout/fragmentoum_fragment" />
+        tools:layout="@layout/overview_fragment" />
+    <fragment
+        android:id="@+id/investimentosFragment"
+        android:name="com.android.cryptomanager.home.view.fragments.InvestimentosFragment"
+        android:label="FragmentoDois"
+        tools:layout="@layout/investimentos_fragment" />
+    <fragment
+        android:id="@+id/historicFragment"
+        android:name="com.android.cryptomanager.home.view.fragments.HistoricFragment"
+        android:label="FragmentoTres"
+        tools:layout="@layout/historic_fragment" />
 </navigation>

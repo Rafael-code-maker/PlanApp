@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/overviewFragment"
+        android:icon="@drawable/ic_overview"
+        android:title="@string/overview" />
+    <item
+        android:id="@+id/investimentosFragment"
+        android:icon="@drawable/ic_new_info"
+        android:title="@string/investiments" />
+    <item
+        android:id="@+id/historicFragment"
+        android:icon="@drawable/ic_historic"
+        android:title="@string/historic" />
+</menu>
