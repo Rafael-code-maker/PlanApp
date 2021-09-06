@@ -15,4 +15,15 @@
     <string name="chiliz_initial_value">R$ 650,00</string>
     <string name="ethereum_initial_value">R$ 1.000,00</string>
     <string name="biticoin_initial_value">R$ 500,00</string>
+    <string name="bitcoin">Bitcoin</string>
+    <string name="ethereum">Ethereum</string>
+    <string name="chiliz">Chiliz</string>
+    <string name="high_or_low">1,07 %</string>
+    <string name="vinte_quatro_horas">Em 24 horas</string>
+    <string name="invested_value">Investido: R$ 2.100,00</string>
+    <string name="actual_value_of_invested_value">Atual : R$ 2.200,00</string>
+    <string name="user_name">Olá,\nRafael</string>
+    <string name="my_capital">MEU PATRIMÔNIO</string>
+    <string name="capital_value">R$ 2.132,30</string>
+    <string name="wallet_distribution">Distribuição da carteira</string>
 </resources>
