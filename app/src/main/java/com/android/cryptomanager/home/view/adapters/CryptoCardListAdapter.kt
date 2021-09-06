@@ -23,7 +23,7 @@ class CryptoCardListAdapter(
 
     override fun onBindViewHolder(holder: CryptoCardViewHolder, position: Int) {
         holder.bind(cryptoCard[position])
-        holder.itemView.setOnClickListener { listener.onSelect(cryptoCard[position]) }
+        holder.itemView.setOnClickListener { listener.onSelect(position) }
     }
 
     override fun getItemCount(): Int {
@@ -50,7 +50,7 @@ class CryptoCardListAdapter(
     }
 
     interface OnSelectOnClickListener {
-        fun onSelect(crypto: CryptoCard)
+        fun onSelect(position: Int)
     }
 
 }

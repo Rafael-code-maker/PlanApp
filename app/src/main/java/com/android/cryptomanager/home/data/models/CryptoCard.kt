@@ -1,5 +1,7 @@
 package com.android.cryptomanager.home.data.models
 
+import java.io.Serializable
+
 data class CryptoCard(
     val image: Int,
     val coinTitle: String,
@@ -8,4 +10,4 @@ data class CryptoCard(
     val hoursDescription: String,
     val investedValue: String,
     val actualValue: String
-)
+) : Serializable

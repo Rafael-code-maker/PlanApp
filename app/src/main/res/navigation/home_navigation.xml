@@ -14,10 +14,26 @@
         android:id="@+id/investimentosFragment"
         android:name="com.android.cryptomanager.home.view.fragments.InvestimentosFragment"
         android:label="FragmentoDois"
-        tools:layout="@layout/investimentos_fragment" />
+        tools:layout="@layout/investimentos_fragment">
+        <argument
+            android:name="Crypto"
+            app:argType="com.android.cryptomanager.home.data.models.CryptoCard" />
+        <action
+            android:id="@+id/action_investimentosFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historicFragment"
         android:name="com.android.cryptomanager.home.view.fragments.HistoricFragment"
         android:label="FragmentoTres"
         tools:layout="@layout/historic_fragment" />
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.android.cryptomanager.home.view.fragments.addFragment"
+        android:label="addFragment"
+        tools:layout="@layout/add_fragment">
+        <argument
+            android:name="Crypto"
+            app:argType="com.android.cryptomanager.home.data.models.CryptoCard" />
+    </fragment>
 </navigation>

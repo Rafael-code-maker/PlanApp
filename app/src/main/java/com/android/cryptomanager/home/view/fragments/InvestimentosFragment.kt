@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android.cryptomanager.R
 import com.android.cryptomanager.databinding.InvestimentosFragmentBinding
 import com.android.cryptomanager.home.data.models.CryptoCard
@@ -26,20 +27,29 @@ class InvestimentosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val adapter = CryptoCardListAdapter(
+        binding.recyclerviewCriptomoedasMenu.adapter = CryptoCardListAdapter(
             cryptoCards(),
             object : CryptoCardListAdapter.OnSelectOnClickListener {
-                override fun onSelect(crypto: CryptoCard) {
-//                val direction =
-//                    InvestimentosFragmentDirections.actionPixValueFragmentToConfirmationPixFragment(
-//                        crypto
-//                    )
-//                findNavController().navigate(direction)
+                override fun onSelect(position: Int) {
+                    when (cryptoCards()[position].coinTitle) {
+                        "Bitcoin" -> {
+                            val direction =
+                                InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
+                                    cryptoCards()[position]
+                                )
+                            findNavController().navigate(direction)
+                        }
+                        else -> {
+                            val direction =
+                                InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
+                                    cryptoCards()[position]
+                                )
+                            findNavController().navigate(direction)
+                        }
+                    }
                 }
-            })
 
-        binding.recyclerviewCriptomoedasMenu.adapter = adapter
+            })
 
     }
 
