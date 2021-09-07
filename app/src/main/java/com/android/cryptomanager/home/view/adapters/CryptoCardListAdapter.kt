@@ -15,7 +15,10 @@ class CryptoCardListAdapter(
 ) :
     RecyclerView.Adapter<CryptoCardListAdapter.CryptoCardViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoCardViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): CryptoCardViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.criptomoeda_card_view, parent, false)
         return CryptoCardViewHolder(view)

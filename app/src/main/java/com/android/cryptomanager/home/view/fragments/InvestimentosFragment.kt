@@ -27,6 +27,7 @@ class InvestimentosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.recyclerviewCriptomoedasMenu.adapter = CryptoCardListAdapter(
             cryptoCards(),
             object : CryptoCardListAdapter.OnSelectOnClickListener {
@@ -39,16 +40,15 @@ class InvestimentosFragment : Fragment() {
                                 )
                             findNavController().navigate(direction)
                         }
-                        else -> {
-                            val direction =
-                                InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
-                                    cryptoCards()[position]
-                                )
-                            findNavController().navigate(direction)
-                        }
+//                        else -> {
+//                            val direction =
+//                                InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
+//                                    cryptoCards()[position]
+//                                )
+//                            findNavController().navigate(direction)
+//                        }
                     }
                 }
-
             })
 
     }

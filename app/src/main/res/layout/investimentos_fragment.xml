@@ -22,6 +22,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +80,9 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_criptomoedas_menu"
+                android:clickable="true"
+                android:elevation="20dp"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
