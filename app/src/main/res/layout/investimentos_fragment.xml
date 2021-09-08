@@ -80,12 +80,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_criptomoedas_menu"
-                android:clickable="true"
-                android:elevation="20dp"
-                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:elevation="20dp"
+                android:focusable="true"
                 android:orientation="vertical"
                 android:overScrollMode="never"
                 app:layoutManager="LinearLayoutManager"

@@ -26,4 +26,16 @@
     <string name="my_capital">MEU PATRIMÔNIO</string>
     <string name="capital_value">R$ 2.132,30</string>
     <string name="wallet_distribution">Distribuição da carteira</string>
+    <string name="value_invested">Valor investido :</string>
+    <string name="value_invested_money">R$ 1841,52</string>
+    <string name="quantitie">Quantidade :</string>
+    <string name="quantitie_value">848</string>
+    <string name="medium_price">Preço Médio :</string>
+    <string name="medium_price_value">R$ 2,12</string>
+    <string name="actual_value_coin">Valor Atual da Moeda :</string>
+    <string name="actual_coin_price">R$ 1.95</string>
+    <string name="cotation_with_all_fine">Preço de venda na cotação atual + corretagem :</string>
+    <string name="cotation_with_all_price">R$ 1879,52</string>
+    <string name="price_on_actual_cotation">Preço de venda na cotação atual + corretagem + saque :</string>
+    <string name="price_value">R$ 1779,52</string>
 </resources>
