@@ -29,7 +29,7 @@
         tools:layout="@layout/historic_fragment" />
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.android.cryptomanager.home.view.fragments.addFragment"
+        android:name="com.android.cryptomanager.home.view.fragments.AddFragment"
         android:label="addFragment"
         tools:layout="@layout/add_fragment">
         <argument

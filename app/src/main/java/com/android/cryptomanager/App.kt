@@ -1,7 +1,7 @@
 package com.android.cryptomanager
 
 import android.app.Application
-import homeModule
+import com.android.cryptomanager.home.presentation.homeModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
