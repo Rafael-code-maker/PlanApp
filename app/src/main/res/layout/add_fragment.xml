@@ -52,8 +52,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:textColor="@color/white"
                         android:text="@string/value_invested"
+                        android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,9 +72,9 @@
                         android:id="@+id/quanties"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
                         android:layout_marginEnd="16dp"
                         android:text="@string/quantitie"
+                        android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/invested_value" />
 
@@ -83,8 +83,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:textColor="@color/white"
                         android:text="@string/quantitie_value"
+                        android:textColor="@color/white"
                         android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="@id/quanties"
                         app:layout_constraintStart_toStartOf="@id/quanties"
@@ -174,8 +174,8 @@
                         android:layout_marginEnd="16dp"
                         android:text="@string/cotation_with_all_fine"
                         android:textAlignment="center"
-                        android:textSize="18sp"
                         android:textColor="@color/white"
+                        android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -184,8 +184,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/cotation_with_all_price"
-                        android:textSize="28sp"
                         android:textColor="@color/white"
+                        android:textSize="28sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
