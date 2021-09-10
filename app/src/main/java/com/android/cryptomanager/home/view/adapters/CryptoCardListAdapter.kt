@@ -11,13 +11,13 @@ import com.android.cryptomanager.home.data.models.CryptoCard
 
 class CryptoCardListAdapter(
     private val cryptoCard: List<CryptoCard>,
-    private val listener: OnSelectOnClickListener
+    private val listener: OnSelectOnClickListener,
 ) :
     RecyclerView.Adapter<CryptoCardListAdapter.CryptoCardViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): CryptoCardViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.criptomoeda_card_view, parent, false)

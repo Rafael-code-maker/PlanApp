@@ -9,5 +9,5 @@ data class CryptoCard(
     val coinGain: String,
     val hoursDescription: String,
     val investedValue: String,
-    val actualValue: String
+    val actualValue: String,
 ) : Serializable

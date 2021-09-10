@@ -25,7 +25,7 @@ class OverviewFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = OverviewFragmentBinding.inflate(layoutInflater)
         pieChart = binding.pieChartView
