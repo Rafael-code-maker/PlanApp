@@ -8,14 +8,14 @@
         android:id="@+id/criptoName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
+        android:background="@color/white"
         app:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Nome da Criptomoeda"
         app:titleCentered="true"
-        app:titleTextColor="@color/white" />
+        app:titleTextColor="@color/orange" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -36,7 +36,7 @@
                 android:id="@+id/material_card1"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:cardBackgroundColor="@color/grey_light"
+                app:cardBackgroundColor="@color/orange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -52,6 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
+                        android:textColor="@color/white"
                         android:text="@string/value_invested"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -62,6 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/value_invested_money"
+                        android:textColor="@color/white"
                         android:textSize="28sp"
                         app:layout_constraintStart_toStartOf="@id/invested_value"
                         app:layout_constraintTop_toBottomOf="@id/invested_value" />
@@ -70,6 +72,7 @@
                         android:id="@+id/quanties"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:layout_marginEnd="16dp"
                         android:text="@string/quantitie"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:textColor="@color/white"
                         android:text="@string/quantitie_value"
                         android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="@id/quanties"
@@ -151,7 +155,7 @@
                 android:id="@+id/material_card3"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                app:cardBackgroundColor="@color/grey_light"
+                app:cardBackgroundColor="@color/orange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/material_card2">
@@ -171,6 +175,7 @@
                         android:text="@string/cotation_with_all_fine"
                         android:textAlignment="center"
                         android:textSize="18sp"
+                        android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -180,6 +185,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/cotation_with_all_price"
                         android:textSize="28sp"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

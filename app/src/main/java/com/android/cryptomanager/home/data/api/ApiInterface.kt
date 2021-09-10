@@ -1,8 +1,8 @@
 package com.android.cryptomanager.home.data.api
 
 import com.android.cryptomanager.home.data.models.BitcoinResponse
-import com.android.cryptomanager.home.data.models.Chiliz
-import com.android.cryptomanager.home.data.models.Ethereum
+import com.android.cryptomanager.home.data.models.ChilizResponse
+import com.android.cryptomanager.home.data.models.EthereumResponse
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,10 +14,10 @@ interface ApiInterface {
     suspend fun bitcoin(): Response<BitcoinResponse>
 
     @GET("CHZ/ticker/")
-    suspend fun chiliz(): Response<Chiliz>
+    suspend fun chiliz(): Response<ChilizResponse>
 
     @GET("ETH/ticker/")
-    suspend fun ethereum(): Response<Ethereum>
+    suspend fun ethereum(): Response<EthereumResponse>
 
     companion object {
         private const val BASE_URL =

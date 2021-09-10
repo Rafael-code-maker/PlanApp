@@ -8,8 +8,4 @@
         android:id="@+id/investimentosFragment"
         android:icon="@drawable/ic_new_info"
         android:title="@string/investiments" />
-    <item
-        android:id="@+id/historicFragment"
-        android:icon="@drawable/ic_historic"
-        android:title="@string/historic" />
 </menu>

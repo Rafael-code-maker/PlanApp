@@ -8,18 +8,22 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.android.cryptomanager.databinding.AddFragmentBinding
 import com.android.cryptomanager.home.presentation.AddViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 
 class AddFragment : Fragment() {
 
     private var _binding: AddFragmentBinding? = null
     private val binding get() = _binding!!
-
-    private val addViewModel by viewModel<AddViewModel>()
+    private val arguments by navArgs<AddFragmentArgs>()
+    private val addViewModel: AddViewModel by viewModel {
+        parametersOf(arguments.crypto)
+    }
 
 
     override fun onCreateView(
@@ -50,7 +54,7 @@ class AddFragment : Fragment() {
             binding.quantiesValue.text = it.toString()
         }
 
-        addViewModel.bitcoinPrice.observe(viewLifecycleOwner) {
+        addViewModel.coinPrice.observe(viewLifecycleOwner) {
             binding.actualCoinValue.text = it
         }
     }

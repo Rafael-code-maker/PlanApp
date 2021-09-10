@@ -23,11 +23,6 @@
             app:destination="@id/addFragment" />
     </fragment>
     <fragment
-        android:id="@+id/historicFragment"
-        android:name="com.android.cryptomanager.home.view.fragments.HistoricFragment"
-        android:label="FragmentoTres"
-        tools:layout="@layout/historic_fragment" />
-    <fragment
         android:id="@+id/addFragment"
         android:name="com.android.cryptomanager.home.view.fragments.AddFragment"
         android:label="addFragment"

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.cryptomanager.R
@@ -33,33 +32,10 @@ class InvestimentosFragment : Fragment() {
             cryptoCards(),
             object : CryptoCardListAdapter.OnSelectOnClickListener {
                 override fun onSelect(position: Int) {
-                    when (cryptoCards()[position].coinTitle) {
-                        BITCOIN -> {
-                            val direction =
-                                InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
-                                    cryptoCards()[position]
-                                )
-                            findNavController().navigate(direction)
-                        }
-                        ETHEREUM -> {
-                            val direction =
-                                InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
-                                    cryptoCards()[position]
-                                )
-                            findNavController().navigate(direction)
-                        }
-                        CHILIZ -> {
-                            val direction =
-                                InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
-                                    cryptoCards()[position]
-                                )
-                            findNavController().navigate(direction)
-                        }
-                        else -> {
-                            Toast.makeText(context, NOT_IMPLEMENTED_SCREEN, Toast.LENGTH_LONG)
-                                .show()
-                        }
-                    }
+                    val direction =
+                        InvestimentosFragmentDirections.actionInvestimentosFragmentToAddFragment(
+                            cryptoCards()[position])
+                    findNavController().navigate(direction)
                 }
             })
 
@@ -100,13 +76,6 @@ class InvestimentosFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        private const val BITCOIN = "Bitcoin"
-        private const val ETHEREUM = "Ethereum"
-        private const val CHILIZ = "Chiliz"
-        private const val NOT_IMPLEMENTED_SCREEN = "Tela não implementada"
     }
 
 }

@@ -1,15 +1,18 @@
 package com.android.cryptomanager.home.presentation
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.cryptomanager.home.data.models.BitcoinResponse
+import com.android.cryptomanager.home.data.models.BitcoinUserData
+import com.android.cryptomanager.home.data.models.ChilizUserData
+import com.android.cryptomanager.home.data.models.CryptoCard
+import com.android.cryptomanager.home.data.models.EthereumUserData
 import com.android.cryptomanager.home.data.repositories.HomeRepository
 import kotlinx.coroutines.launch
 
-class AddViewModel(private val homeRepository: HomeRepository) : ViewModel() {
+class AddViewModel(private val cryptoCard: CryptoCard, private val homeRepository: HomeRepository) :
+    ViewModel() {
 
     private val _currentValueLive = MutableLiveData<Double>()
     val currentValueLive: LiveData<Double> = _currentValueLive
@@ -17,38 +20,142 @@ class AddViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     private val _currentQuantieLive = MutableLiveData<Double>()
     val currentQuantieLive: LiveData<Double> = _currentQuantieLive
 
-    private val _bitcoinPrice = MutableLiveData<String>()
-    val bitcoinPrice: LiveData<String> = _bitcoinPrice
+    private val _coinPrice = MutableLiveData<String>()
+    val coinPrice: LiveData<String> = _coinPrice
+
 
     private var currentValue: Double = 0.0
     private var currentQuantie: Double = 0.0
-    private lateinit var bitcoin: BitcoinResponse
 
     init {
-        updateBitcoinPrice()
+        when (cryptoCard.coinTitle) {
+            "Bitcoin" -> {
+                updateBitcoinPrice()
+            }
+            "Ethereum" -> {
+                updateEthereumPrice()
+            }
+            "Chiliz" -> {
+                updateChilizPrice()
+            }
+        }
+    }
+
+    fun updateCurrentValues() {
+        viewModelScope.launch {
+            when (cryptoCard.coinTitle) {
+                "Bitcoin" -> {
+                    if (homeRepository.getBitcoin()?.value?.toDoubleOrNull() != null) {
+                        currentValue = homeRepository.getBitcoin()?.value?.toDoubleOrNull()!!
+                    } else {
+                        currentQuantie = 0.0
+                    }
+                    if (homeRepository.getBitcoin()?.quantitie?.toDoubleOrNull() != null) {
+                        currentQuantie = homeRepository.getBitcoin()?.quantitie?.toDoubleOrNull()!!
+                    } else {
+                        currentQuantie = 0.0
+                    }
+                    _currentValueLive.postValue(currentValue)
+                    _currentQuantieLive.postValue(currentQuantie)
+                }
+                "Ethereum" -> {
+                    if (homeRepository.getEthereum()?.value?.toDoubleOrNull() != null) {
+                        currentValue = homeRepository.getEthereum()?.value?.toDoubleOrNull()!!
+                    } else {
+                        currentQuantie = 0.0
+                    }
+                    if (homeRepository.getEthereum()?.quantitie?.toDoubleOrNull() != null) {
+                        currentQuantie = homeRepository.getEthereum()?.quantitie?.toDoubleOrNull()!!
+                    } else {
+                        currentQuantie = 0.0
+                    }
+                    _currentValueLive.postValue(currentValue)
+                    _currentQuantieLive.postValue(currentQuantie)
+                }
+                "Chiliz" -> {
+                    if (homeRepository.getChiliz()?.value?.toDoubleOrNull() != null) {
+                        currentValue = homeRepository.getChiliz()?.value?.toDoubleOrNull()!!
+                    } else {
+                        currentQuantie = 0.0
+                    }
+                    if (homeRepository.getChiliz()?.quantitie?.toDoubleOrNull() != null) {
+                        currentQuantie = homeRepository.getChiliz()?.quantitie?.toDoubleOrNull()!!
+                    } else {
+                        currentQuantie = 0.0
+                    }
+                    _currentValueLive.postValue(currentValue)
+                    _currentQuantieLive.postValue(currentQuantie)
+                }
+            }
+        }
     }
 
     fun updateBitcoinPrice() {
         viewModelScope.launch {
-            bitcoin = homeRepository.getBitcoinPrice()
-            Log.i("Price", bitcoin.bitcoin.last)
-            _bitcoinPrice.postValue(bitcoin.bitcoin.last)
+            _coinPrice.postValue(homeRepository.getBitcoinPrice().bitcoin.last)
+            updateCurrentValues()
+        }
+    }
+
+    fun updateEthereumPrice() {
+        viewModelScope.launch {
+            _coinPrice.postValue(homeRepository.getEthereumPrice().ethereum.last)
+            updateCurrentValues()
+        }
+    }
+
+    fun updateChilizPrice() {
+        viewModelScope.launch {
+            _coinPrice.postValue(homeRepository.getChilizPrice().chiliz.last)
+            updateCurrentValues()
         }
     }
 
     fun insertNewValue(newValue: String, newQuantie: String) {
-        currentValue += newValue.toDouble()
-        currentQuantie += newQuantie.toDouble()
-        _currentValueLive.postValue(currentValue)
-        _currentQuantieLive.postValue(currentQuantie)
+        viewModelScope.launch {
+            currentValue += newValue.toDouble()
+            currentQuantie += newQuantie.toDouble()
+            _currentValueLive.postValue(currentValue)
+            _currentQuantieLive.postValue(currentQuantie)
+            when (cryptoCard.coinTitle) {
+                "Bitcoin" -> {
+                    homeRepository.saveBitcoin(BitcoinUserData(currentValue.toString(),
+                        currentQuantie.toString()))
+                }
+                "Ethereum" -> {
+                    homeRepository.saveEthereum(EthereumUserData(currentValue.toString(),
+                        currentQuantie.toString()))
+                }
+                "Chiliz" -> {
+                    homeRepository.saveChiliz(ChilizUserData(currentValue.toString(),
+                        currentQuantie.toString()))
+                }
+            }
+        }
     }
 
     fun removeValue(valueToBeRemoved: String, quantieToBeRemoved: String) {
-        if (valueToBeRemoved.toDouble() < currentValue && quantieToBeRemoved.toDouble() < currentQuantie) {
-            currentValue = currentValue.minus(valueToBeRemoved.toDouble())
-            currentQuantie = currentQuantie.minus(quantieToBeRemoved.toDouble())
-            _currentValueLive.postValue(currentValue)
-            _currentQuantieLive.postValue(currentQuantie)
+        viewModelScope.launch {
+            if (valueToBeRemoved.toDouble() < currentValue && quantieToBeRemoved.toDouble() < currentQuantie) {
+                currentValue = currentValue.minus(valueToBeRemoved.toDouble())
+                currentQuantie = currentQuantie.minus(quantieToBeRemoved.toDouble())
+                _currentValueLive.postValue(currentValue)
+                _currentQuantieLive.postValue(currentQuantie)
+                when (cryptoCard.coinTitle) {
+                    "Bitcoin" -> {
+                        homeRepository.saveBitcoin(BitcoinUserData(currentValue.toString(),
+                            currentQuantie.toString()))
+                    }
+                    "Ethereum" -> {
+                        homeRepository.saveEthereum(EthereumUserData(currentValue.toString(),
+                            currentQuantie.toString()))
+                    }
+                    "Chiliz" -> {
+                        homeRepository.saveChiliz(ChilizUserData(currentValue.toString(),
+                            currentQuantie.toString()))
+                    }
+                }
+            }
         }
     }
 
