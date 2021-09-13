@@ -72,9 +72,9 @@ class OverviewFragment : Fragment() {
 
         //initializing colors for the entries
         val colors: ArrayList<Int> = ArrayList()
-        colors.add(Color.parseColor("#304567"))
-        colors.add(Color.parseColor("#309967"))
-        colors.add(Color.parseColor("#476567"))
+        colors.add(Color.parseColor("#FF8C00"))
+        colors.add(Color.parseColor("#ffbc40"))
+        colors.add(Color.parseColor("#FFA500"))
 
         //input data and fit data into pie chart entry
         for (type in typeAmountMap.keys) {

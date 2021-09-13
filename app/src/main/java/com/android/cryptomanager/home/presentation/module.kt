@@ -12,6 +12,10 @@ val homeModule = module {
         AddViewModel(cryptoCard, get())
     }
 
+    viewModel {
+        InvestimentosViewModel(get())
+    }
+
     factory {
         ApiInterface.create()
     }
