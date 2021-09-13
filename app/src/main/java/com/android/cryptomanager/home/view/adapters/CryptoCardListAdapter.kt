@@ -47,7 +47,7 @@ class CryptoCardListAdapter(
     }
 
     interface OnSelectOnClickListener {
-       fun onSelect(position: Int)
+        fun onSelect(position: Int)
     }
 
 }
