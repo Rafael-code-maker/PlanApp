@@ -64,21 +64,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
-                        android:text="@string/invested_default_value"
                         android:textAlignment="center"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@id/image_cripto"
-                        app:layout_constraintTop_toBottomOf="@id/criptoName" />
+                        app:layout_constraintTop_toBottomOf="@id/criptoName"
+                        tools:text="@string/invested_default_value" />
 
                     <TextView
                         android:id="@+id/invested_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/invested_value"
                         app:layout_constraintStart_toStartOf="@id/coin_price"
-                        app:layout_constraintTop_toBottomOf="@id/coin_price" />
+                        app:layout_constraintTop_toBottomOf="@id/coin_price"
+                        tools:text="@string/invested_value" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>

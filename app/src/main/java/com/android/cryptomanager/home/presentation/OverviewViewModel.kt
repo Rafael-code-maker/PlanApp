@@ -7,16 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.android.cryptomanager.home.data.repositories.HomeRepository
 import kotlinx.coroutines.launch
 
-class InvestimentosViewModel(private val homeRepository: HomeRepository) : ViewModel() {
-
-    private val _bitcoinPrice = MutableLiveData<Double>()
-    val bitcoinPrice: LiveData<Double> = _bitcoinPrice
-
-    private val _ethereumPrice = MutableLiveData<Double>()
-    val ethereumPrice: LiveData<Double> = _ethereumPrice
-
-    private val _chilizPrice = MutableLiveData<Double>()
-    val chilizPrice: LiveData<Double> = _chilizPrice
+class OverviewViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
     private val _bitcoinInvested = MutableLiveData<Double>()
     val bitcoinInvested: LiveData<Double> = _bitcoinInvested
@@ -30,60 +21,74 @@ class InvestimentosViewModel(private val homeRepository: HomeRepository) : ViewM
     private val _totalInvested = MutableLiveData<Double>()
     val totalInvested: LiveData<Double> = _totalInvested
 
+    private val _totalInvestedActualCotation = MutableLiveData<Double>()
+    val totalInvestedActualCotation: LiveData<Double> = _totalInvestedActualCotation
+
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
+
+    private var investedTotal = 0.0
+    private var investedTotalonActualCotation = 0.0
 
     init {
         _loading.postValue(true)
         viewModelScope.launch {
-            updateBitcoinPrice()
-            updateEthereumPrice()
-            updateChilizPrice()
             updateCurrentValues()
+            totalInvestedOnActualCotation()
             _loading.postValue(false)
         }
     }
 
-    suspend fun updateBitcoinPrice() {
-        _bitcoinPrice.postValue(homeRepository.getBitcoinPrice().bitcoin.last.toDoubleOrNull())
-    }
-
-    private suspend fun updateEthereumPrice() {
-        _ethereumPrice.postValue(homeRepository.getEthereumPrice().ethereum.last.toDoubleOrNull())
-    }
-
-    suspend fun updateChilizPrice() {
-        _chilizPrice.postValue(homeRepository.getChilizPrice().chiliz.last.toDoubleOrNull())
-    }
-
     suspend fun updateCurrentValues() {
-        var totalInvested = 0.0
 
         if (homeRepository.getBitcoin()?.value?.toDoubleOrNull() != null) {
             _bitcoinInvested.postValue(homeRepository.getBitcoin()?.value?.toDoubleOrNull()!!)
-            totalInvested += homeRepository.getBitcoin()?.value?.toDoubleOrNull()!!
+            investedTotal += homeRepository.getBitcoin()?.value?.toDoubleOrNull()!!
         } else {
             _bitcoinInvested.postValue("0.0".toDoubleOrNull())
-            totalInvested += 0.0
+            investedTotal += 0.0
         }
 
         if (homeRepository.getEthereum()?.value?.toDoubleOrNull() != null) {
             _ethereumInvested.postValue(homeRepository.getEthereum()?.value?.toDoubleOrNull()!!)
-            totalInvested += homeRepository.getEthereum()?.value?.toDoubleOrNull()!!
+            investedTotal += homeRepository.getEthereum()?.value?.toDoubleOrNull()!!
         } else {
             _ethereumInvested.postValue("0.0".toDoubleOrNull())
-            totalInvested += 0.0
+            investedTotal += 0.0
         }
 
         if (homeRepository.getChiliz()?.value?.toDoubleOrNull() != null) {
             _chilizInvested.postValue(homeRepository.getChiliz()?.value?.toDoubleOrNull()!!)
-            totalInvested += homeRepository.getChiliz()?.value?.toDoubleOrNull()!!
+            investedTotal += homeRepository.getChiliz()?.value?.toDoubleOrNull()!!
         } else {
             _chilizInvested.postValue("0.0".toDoubleOrNull())
-            totalInvested += 0.0
+            investedTotal += 0.0
         }
 
-        _totalInvested.postValue(totalInvested)
+        _totalInvested.postValue(investedTotal)
+    }
+
+    suspend fun totalInvestedOnActualCotation() {
+
+        if (homeRepository.getBitcoin()?.quantitie?.toDoubleOrNull() != null) {
+            investedTotalonActualCotation += homeRepository.getBitcoin()?.quantitie?.toDoubleOrNull()!! * homeRepository.getBitcoinPrice().bitcoin.last.toDoubleOrNull()!!
+        } else {
+            investedTotalonActualCotation += 0.0
+        }
+
+        if (homeRepository.getEthereum()?.quantitie?.toDoubleOrNull() != null) {
+            investedTotalonActualCotation += homeRepository.getEthereum()?.quantitie?.toDoubleOrNull()!! * homeRepository.getEthereumPrice().ethereum.last.toDoubleOrNull()!!
+        } else {
+            investedTotalonActualCotation += 0.0
+        }
+
+        if (homeRepository.getChiliz()?.quantitie?.toDoubleOrNull() != null) {
+            investedTotalonActualCotation += homeRepository.getChiliz()?.quantitie?.toDoubleOrNull()!! * homeRepository.getChilizPrice().chiliz.last.toDoubleOrNull()!!
+        } else {
+            investedTotalonActualCotation += 0.0
+        }
+
+        _totalInvestedActualCotation.postValue(investedTotalonActualCotation)
     }
 
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.cryptomanager.R
@@ -69,11 +70,12 @@ class InvestimentosFragment : Fragment() {
         }
 
         investimentosViewModel.totalInvested.observe(viewLifecycleOwner) {
-            binding.capitalValue.text = decimalFormat.format(it)
+            binding.capitalValue.text = "R$ " + decimalFormat.format(it)
         }
 
         investimentosViewModel.loading.observe(viewLifecycleOwner) {
-            if (it == true) {
+            binding.loadingInvestimentos.isVisible = it
+            if (it == false) {
                 binding.recyclerviewCriptomoedasMenu.adapter = CryptoCardListAdapter(
                     cryptoCards(),
                     object : CryptoCardListAdapter.OnSelectOnClickListener {
@@ -98,20 +100,20 @@ class InvestimentosFragment : Fragment() {
             CryptoCard(
                 R.drawable.logo_bitcoin,
                 getString(R.string.bitcoin),
-                decimalFormat.format(bitcoinPrice),
-                decimalFormat.format(bitcoinInvested),
+                "R$ " + decimalFormat.format(bitcoinPrice),
+                "Investido : R$ " + decimalFormat.format(bitcoinInvested),
             ),
             CryptoCard(
                 R.drawable.logo_ethereum,
                 getString(R.string.ethereum),
-                decimalFormat.format(ethereumPrice),
-                decimalFormat.format(ethereumInvested),
+                "R$ " + decimalFormat.format(ethereumPrice),
+                "Investido : R$ " + decimalFormat.format(ethereumInvested),
             ),
             CryptoCard(
                 R.drawable.logo_chiliz,
                 getString(R.string.chiliz),
-                decimalFormat.format(chilizPrice),
-                decimalFormat.format(chilizInvested),
+                "R$ " + decimalFormat.format(chilizPrice),
+                "Investido : R$ " + decimalFormat.format(chilizInvested),
             )
         )
     }

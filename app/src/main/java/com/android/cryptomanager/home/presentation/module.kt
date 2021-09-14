@@ -16,6 +16,10 @@ val homeModule = module {
         InvestimentosViewModel(get())
     }
 
+    viewModel {
+        OverviewViewModel(get())
+    }
+
     factory {
         ApiInterface.create()
     }

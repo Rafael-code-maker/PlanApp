@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,6 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_return"
+        app:navigationIconTint="@color/dark_orange"
         app:title="Nome da Criptomoeda"
         app:titleCentered="true"
         app:titleTextColor="@color/orange" />
@@ -31,6 +34,18 @@
             android:id="@+id/contraint_scrollview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/loading_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="20dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/material_card1"
@@ -62,11 +77,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/value_invested_money"
                         android:textColor="@color/white"
                         android:textSize="28sp"
                         app:layout_constraintStart_toStartOf="@id/invested_value"
-                        app:layout_constraintTop_toBottomOf="@id/invested_value" />
+                        app:layout_constraintTop_toBottomOf="@id/invested_value"
+                        tools:text="@string/value_invested_money" />
 
                     <TextView
                         android:id="@+id/quanties"
@@ -83,12 +98,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/quantitie_value"
                         android:textColor="@color/white"
                         android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="@id/quanties"
                         app:layout_constraintStart_toStartOf="@id/quanties"
-                        app:layout_constraintTop_toBottomOf="@id/quanties" />
+                        app:layout_constraintTop_toBottomOf="@id/quanties"
+                        tools:text="@string/quantitie_value" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -122,10 +137,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/medium_price_value"
                         android:textSize="28sp"
                         app:layout_constraintStart_toStartOf="@id/medium_price"
-                        app:layout_constraintTop_toBottomOf="@id/medium_price" />
+                        app:layout_constraintTop_toBottomOf="@id/medium_price"
+                        tools:text="@string/medium_price_value" />
 
                     <TextView
                         android:id="@+id/coin_value"
@@ -141,11 +156,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/actual_coin_price"
                         android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="@id/coin_value"
                         app:layout_constraintStart_toStartOf="@id/coin_value"
-                        app:layout_constraintTop_toBottomOf="@id/coin_value" />
+                        app:layout_constraintTop_toBottomOf="@id/coin_value"
+                        tools:text="@string/actual_coin_price" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -184,13 +199,13 @@
                         android:id="@+id/parcial_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/cotation_with_all_price"
                         android:textColor="@color/white"
                         android:textSize="28sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cotation_with_all_fine" />
+                        app:layout_constraintTop_toBottomOf="@+id/cotation_with_all_fine"
+                        tools:text="@string/cotation_with_all_price" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -229,12 +244,12 @@
                         android:id="@+id/total_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/price_value"
                         android:textSize="28sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/price_on_actual_cotation" />
+                        app:layout_constraintTop_toBottomOf="@+id/price_on_actual_cotation"
+                        tools:text="@string/price_value" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

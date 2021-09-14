@@ -32,6 +32,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ProgressBar
+                android:id="@+id/loading_investimentos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
@@ -60,11 +71,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/invest_start_margin"
-                android:text="@string/capital_value"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/my_capital" />
+                app:layout_constraintTop_toBottomOf="@id/my_capital"
+                tools:text="@string/capital_value" />
 
             <TextView
                 android:id="@+id/wallet_dristibuttion"

@@ -32,43 +32,41 @@ class AddViewModel(private val cryptoCard: CryptoCard, private val homeRepositor
     private val _coinPrice = MutableLiveData<String>()
     val coinPrice: LiveData<String> = _coinPrice
 
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean> = _loading
 
     private var currentValue: Double = 0.0
     private var currentQuantie: Double = 0.0
 
     init {
-        when (cryptoCard.coinTitle) {
-            "Bitcoin" -> {
-                updateBitcoinPrice()
+        _loading.postValue(true)
+        viewModelScope.launch {
+            when (cryptoCard.coinTitle) {
+                "Bitcoin" -> {
+                    updateBitcoinPrice()
+                }
+                "Ethereum" -> {
+                    updateEthereumPrice()
+                }
+                "Chiliz" -> {
+                    updateChilizPrice()
+                }
             }
-            "Ethereum" -> {
-                updateEthereumPrice()
-            }
-            "Chiliz" -> {
-                updateChilizPrice()
-            }
+            updateCurrentValues()
+            _loading.postValue(false)
         }
     }
 
-    fun updateBitcoinPrice() {
-        viewModelScope.launch {
-            _coinPrice.postValue(homeRepository.getBitcoinPrice().bitcoin.last)
-            updateCurrentValues()
-        }
+    suspend fun updateBitcoinPrice() {
+        _coinPrice.postValue(homeRepository.getBitcoinPrice().bitcoin.last)
     }
 
-    fun updateEthereumPrice() {
-        viewModelScope.launch {
-            _coinPrice.postValue(homeRepository.getEthereumPrice().ethereum.last)
-            updateCurrentValues()
-        }
+    suspend fun updateEthereumPrice() {
+        _coinPrice.postValue(homeRepository.getEthereumPrice().ethereum.last)
     }
 
-    fun updateChilizPrice() {
-        viewModelScope.launch {
-            _coinPrice.postValue(homeRepository.getChilizPrice().chiliz.last)
-            updateCurrentValues()
-        }
+    suspend fun updateChilizPrice() {
+        _coinPrice.postValue(homeRepository.getChilizPrice().chiliz.last)
     }
 
     fun updateCurrentValues() {

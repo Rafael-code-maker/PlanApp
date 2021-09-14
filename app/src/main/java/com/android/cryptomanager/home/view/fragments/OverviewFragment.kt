@@ -5,20 +5,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.android.cryptomanager.databinding.OverviewFragmentBinding
+import com.android.cryptomanager.home.presentation.OverviewViewModel
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 
 class OverviewFragment : Fragment() {
 
     private var _binding: OverviewFragmentBinding? = null
     private val binding get() = _binding!!
+
+    private val overviewViewModel by viewModel<OverviewViewModel>()
 
     var pieChart: PieChart? = null
 
@@ -34,8 +41,45 @@ class OverviewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initPieChart()
-        showPieChart()
+
+        var bitcoin: Double = 0.0
+        var ethereum: Double = 0.0
+        var chiliz: Double = 0.0
+
+        val decimalFormat = DecimalFormat("#,###.###")
+        decimalFormat.roundingMode = RoundingMode.CEILING
+
+        overviewViewModel.bitcoinInvested.observe(viewLifecycleOwner) {
+            binding.valueBtc.text = "R$ " + decimalFormat.format(it)
+            bitcoin = it
+        }
+
+        overviewViewModel.ethereumInvested.observe(viewLifecycleOwner) {
+            binding.valueEth.text = "R$ " + decimalFormat.format(it)
+            ethereum = it
+        }
+
+        overviewViewModel.chilizInvested.observe(viewLifecycleOwner) {
+            binding.valueChz.text = "R$ " + decimalFormat.format(it)
+            chiliz = it
+        }
+
+        overviewViewModel.loading.observe(viewLifecycleOwner) {
+            binding.loadingOverview.isVisible = it
+            if (it == false) {
+                initPieChart()
+                showPieChart(bitcoin, ethereum, chiliz)
+            }
+        }
+
+        overviewViewModel.totalInvested.observe(viewLifecycleOwner) {
+            binding.coinPrice.text = "R$ " + decimalFormat.format(it)
+        }
+
+        overviewViewModel.totalInvestedActualCotation.observe(viewLifecycleOwner) {
+            binding.totalActualCotation.text = "R$ " + decimalFormat.format(it)
+        }
+
     }
 
     private fun initPieChart() {
@@ -60,15 +104,19 @@ class OverviewFragment : Fragment() {
         pieChart!!.setHoleColor(Color.parseColor("#FFFFFF"))
     }
 
-    private fun showPieChart() {
+    private fun showPieChart(bitcoin: Double, ethereum: Double, chiliz: Double) {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""
 
+        val decimalFormat = DecimalFormat("#,###.###")
+        decimalFormat.roundingMode = RoundingMode.CEILING
+
         //initializing data
-        val typeAmountMap: MutableMap<String, Int> = HashMap()
-        typeAmountMap["Bitcoin"] = 500
-        typeAmountMap["Ethereum"] = 1000
-        typeAmountMap["Chiliz"] = 650
+        val typeAmountMap: MutableMap<String, Double> = HashMap()
+        typeAmountMap["Bitcoin"] = bitcoin
+        typeAmountMap["Ethereum"] = ethereum
+        typeAmountMap["Chiliz"] = chiliz
+
 
         //initializing colors for the entries
         val colors: ArrayList<Int> = ArrayList()

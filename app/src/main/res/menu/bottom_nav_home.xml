@@ -6,6 +6,6 @@
         android:title="@string/visao_geral" />
     <item
         android:id="@+id/investimentosFragment"
-        android:icon="@drawable/ic_new_info"
+        android:icon="@drawable/ic_investimentos"
         android:title="@string/investiments" />
 </menu>
