@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Nova Entrada"
+        app:title="Adicionar"
         app:titleCentered="true"
         app:titleTextColor="@color/white" />
 
@@ -25,8 +25,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:hint="Valor da entrada"
-        android:inputType="number"
+        android:digits="0123456789."
+        android:hint="@string/valor_da_entrada"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/new_entrie" />
@@ -38,8 +39,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:hint="Quantidade"
-        android:inputType="number"
+        android:digits="0123456789."
+        android:hint="@string/quantidade"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/entrie_value" />

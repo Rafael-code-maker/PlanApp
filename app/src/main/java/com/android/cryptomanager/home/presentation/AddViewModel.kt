@@ -120,23 +120,26 @@ class AddViewModel(private val cryptoCard: CryptoCard, private val homeRepositor
 
     fun insertNewValue(newValue: String, newQuantie: String) {
         viewModelScope.launch {
-            currentValue += newValue.toDouble()
-            currentQuantie += newQuantie.toDouble()
-            _currentValueLive.postValue(currentValue)
-            _currentQuantieLive.postValue(currentQuantie)
-            when (cryptoCard.coinTitle) {
-                "Bitcoin" -> {
-                    homeRepository.saveBitcoin(BitcoinUserData(currentValue.toString(),
-                        currentQuantie.toString()))
+            if (newValue.toDouble() <= 10000000 && newQuantie.toDouble() >= 0.000004 && newQuantie.toDouble() <= 10000000) {
+                currentValue += newValue.toDouble()
+                currentQuantie += newQuantie.toDouble()
+                _currentValueLive.postValue(currentValue)
+                _currentQuantieLive.postValue(currentQuantie)
+                when (cryptoCard.coinTitle) {
+                    "Bitcoin" -> {
+                        homeRepository.saveBitcoin(BitcoinUserData(currentValue.toString(),
+                            currentQuantie.toString()))
+                    }
+                    "Ethereum" -> {
+                        homeRepository.saveEthereum(EthereumUserData(currentValue.toString(),
+                            currentQuantie.toString()))
+                    }
+                    "Chiliz" -> {
+                        homeRepository.saveChiliz(ChilizUserData(currentValue.toString(),
+                            currentQuantie.toString()))
+                    }
                 }
-                "Ethereum" -> {
-                    homeRepository.saveEthereum(EthereumUserData(currentValue.toString(),
-                        currentQuantie.toString()))
-                }
-                "Chiliz" -> {
-                    homeRepository.saveChiliz(ChilizUserData(currentValue.toString(),
-                        currentQuantie.toString()))
-                }
+
             }
         }
     }

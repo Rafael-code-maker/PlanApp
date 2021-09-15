@@ -51,6 +51,8 @@
                 android:id="@+id/material_card1"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 app:cardBackgroundColor="@color/orange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,10 +100,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
                         android:textColor="@color/white"
                         android:textSize="30sp"
-                        app:layout_constraintEnd_toEndOf="@id/quanties"
-                        app:layout_constraintStart_toStartOf="@id/quanties"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/quanties"
                         tools:text="@string/quantitie_value" />
 
@@ -113,6 +115,8 @@
                 android:id="@+id/material_card2"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/material_card1">
@@ -156,9 +160,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
                         android:textSize="30sp"
-                        app:layout_constraintEnd_toEndOf="@id/coin_value"
-                        app:layout_constraintStart_toStartOf="@id/coin_value"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/coin_value"
                         tools:text="@string/actual_coin_price" />
 
@@ -170,6 +174,8 @@
                 android:id="@+id/material_card3"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 app:cardBackgroundColor="@color/orange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -216,7 +222,8 @@
                 android:id="@+id/material_card4"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:outlineProvider="none"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/material_card3">

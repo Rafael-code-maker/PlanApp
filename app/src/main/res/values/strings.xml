@@ -39,4 +39,6 @@
     <string name="price_on_actual_cotation">Preço de venda (Ordem Executada) na cotação atual + corretagem + saque :</string>
     <string name="price_value">R$ 1779,52</string>
     <string name="visao_geral">Visão Geral</string>
+    <string name="valor_da_entrada">Valor da entrada</string>
+    <string name="quantidade">Quantidade</string>
 </resources>

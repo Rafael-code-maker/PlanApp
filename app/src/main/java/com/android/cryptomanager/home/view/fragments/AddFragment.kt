@@ -17,7 +17,6 @@ import org.koin.core.parameter.parametersOf
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-
 class AddFragment : Fragment() {
 
     private var _binding: AddFragmentBinding? = null
@@ -40,6 +39,9 @@ class AddFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val decimalFormat = DecimalFormat("#,###.###")
+        decimalFormat.roundingMode = RoundingMode.CEILING
+
+        val quantieFormat = DecimalFormat("#,###.######")
         decimalFormat.roundingMode = RoundingMode.CEILING
 
         binding.criptoName.setNavigationOnClickListener {
@@ -68,7 +70,7 @@ class AddFragment : Fragment() {
         }
 
         addViewModel.currentQuantieLive.observe(viewLifecycleOwner) {
-            binding.quantiesValue.text = "R$ " + decimalFormat.format(it)
+            binding.quantiesValue.text = quantieFormat.format(it)
         }
 
         addViewModel.coinPrice.observe(viewLifecycleOwner) {

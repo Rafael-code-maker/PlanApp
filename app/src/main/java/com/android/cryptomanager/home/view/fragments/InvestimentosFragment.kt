@@ -12,6 +12,7 @@ import com.android.cryptomanager.databinding.InvestimentosFragmentBinding
 import com.android.cryptomanager.home.data.models.CryptoCard
 import com.android.cryptomanager.home.presentation.InvestimentosViewModel
 import com.android.cryptomanager.home.view.adapters.CryptoCardListAdapter
+import com.google.firebase.auth.FirebaseAuth
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -41,6 +42,11 @@ class InvestimentosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        investimentosViewModel.initialize()
+
+        val userId = FirebaseAuth.getInstance().currentUser?.displayName
+        binding.userName.text = "Olá, " + userId
 
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
@@ -88,7 +94,6 @@ class InvestimentosFragment : Fragment() {
                     })
             }
         }
-
     }
 
     private fun cryptoCards(): List<CryptoCard> {

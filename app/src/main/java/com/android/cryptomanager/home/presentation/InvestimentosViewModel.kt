@@ -33,7 +33,7 @@ class InvestimentosViewModel(private val homeRepository: HomeRepository) : ViewM
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
-    init {
+    fun initialize() {
         _loading.postValue(true)
         viewModelScope.launch {
             updateBitcoinPrice()
