@@ -11,6 +11,7 @@ import com.android.cryptomanager.R
 import com.android.cryptomanager.databinding.InvestimentosFragmentBinding
 import com.android.cryptomanager.home.data.models.CryptoCard
 import com.android.cryptomanager.home.presentation.InvestimentosViewModel
+import com.android.cryptomanager.home.presentation.auxiliar.Screenshot
 import com.android.cryptomanager.home.view.adapters.CryptoCardListAdapter
 import com.google.firebase.auth.FirebaseAuth
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -44,6 +45,10 @@ class InvestimentosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         investimentosViewModel.initialize()
+
+        binding.screenshot.setOnClickListener {
+            Screenshot.share(requireContext(), binding.root)
+        }
 
         val userId = FirebaseAuth.getInstance().currentUser?.displayName
         binding.userName.text = "Olá, " + userId
