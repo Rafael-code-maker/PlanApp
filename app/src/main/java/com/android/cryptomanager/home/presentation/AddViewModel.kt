@@ -183,17 +183,17 @@ class AddViewModel(private val cryptoCard: CryptoCard, private val homeRepositor
                 "Bitcoin" -> {
                     val priceActual =
                         currentQuantie * homeRepository.getBitcoinPrice().bitcoin.last.toDouble()
-                    _parcialPrice.postValue((priceActual - (priceActual * 0.07)).toString())
+                    _parcialPrice.postValue((priceActual - (priceActual * 0.03)).toString())
                 }
                 "Ethereum" -> {
                     val priceActual =
                         currentQuantie * homeRepository.getEthereumPrice().ethereum.last.toDouble()
-                    _parcialPrice.postValue((priceActual - (priceActual * 0.07)).toString())
+                    _parcialPrice.postValue((priceActual - (priceActual * 0.03)).toString())
                 }
                 "Chiliz" -> {
                     val priceActual =
                         currentQuantie * homeRepository.getChilizPrice().chiliz.last.toDouble()
-                    _parcialPrice.postValue((priceActual - (priceActual * 0.07)).toString())
+                    _parcialPrice.postValue((priceActual - (priceActual * 0.03)).toString())
                 }
             }
         }
@@ -205,17 +205,17 @@ class AddViewModel(private val cryptoCard: CryptoCard, private val homeRepositor
                 "Bitcoin" -> {
                     val priceActual =
                         currentQuantie * homeRepository.getBitcoinPrice().bitcoin.last.toDouble()
-                    _totalPrice.postValue((priceActual - (priceActual * 0.07) - (2.90 + priceActual * 0.0199)).toString())
+                    _totalPrice.postValue((priceActual - (priceActual * 0.03) - (2.90 + priceActual * 0.0199)).toString())
                 }
                 "Ethereum" -> {
                     val priceActual =
                         currentQuantie * homeRepository.getEthereumPrice().ethereum.last.toDouble()
-                    _totalPrice.postValue((priceActual - (priceActual * 0.07) - (2.90 + priceActual * 0.0199)).toString())
+                    _totalPrice.postValue((priceActual - (priceActual * 0.03) - (2.90 + priceActual * 0.0199)).toString())
                 }
                 "Chiliz" -> {
                     val priceActual =
                         currentQuantie * homeRepository.getChilizPrice().chiliz.last.toDouble()
-                    _totalPrice.postValue((priceActual - (priceActual * 0.07) - (2.90 + priceActual * 0.0199)).toString())
+                    _totalPrice.postValue((priceActual - (priceActual * 0.03) - (2.90 + priceActual * 0.0199)).toString())
                 }
             }
         }
