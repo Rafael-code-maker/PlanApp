@@ -5,15 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.android.cryptomanager.R
 import com.android.cryptomanager.databinding.AddFragmentBinding
-import com.android.cryptomanager.home.presentation.AddViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -22,9 +18,6 @@ class AddFragment : Fragment() {
     private var _binding: AddFragmentBinding? = null
     private val binding get() = _binding!!
     private val arguments by navArgs<AddFragmentArgs>()
-    private val addViewModel: AddViewModel by viewModel {
-        parametersOf(arguments.crypto)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,40 +51,6 @@ class AddFragment : Fragment() {
             showDialogRemoveEntries()
         }
 
-        addViewModel.loading.observe(viewLifecycleOwner) {
-            binding.loadingAdd.isVisible = it
-        }
-
-        addViewModel.currentValueLive.observe(viewLifecycleOwner) {
-            binding.valueInvested.text = "R$ " + decimalFormat.format(it)
-            addViewModel.calculaPrecoMedio()
-            addViewModel.calculoParcial()
-            addViewModel.calculoTotal()
-        }
-
-        addViewModel.currentQuantieLive.observe(viewLifecycleOwner) {
-            binding.quantiesValue.text = quantieFormat.format(it)
-        }
-
-        addViewModel.coinPrice.observe(viewLifecycleOwner) {
-            binding.actualCoinValue.text = "R$ " + decimalFormat.format(it.toDouble())
-            addViewModel.calculaPrecoMedio()
-            addViewModel.calculoParcial()
-            addViewModel.calculoTotal()
-        }
-
-        addViewModel.mediumPrice.observe(viewLifecycleOwner) {
-            binding.mediumPriceValue.text = "R$ " + decimalFormat.format(it.toDouble())
-        }
-
-        addViewModel.parcialPrice.observe(viewLifecycleOwner) {
-            binding.parcialPrice.text = "R$ " + decimalFormat.format(it.toDouble())
-        }
-
-        addViewModel.totalPrice.observe(viewLifecycleOwner) {
-            binding.totalPrice.text = "R$ " + decimalFormat.format(it.toDouble())
-        }
-
     }
 
     private fun showDialogAddEntries() {
@@ -119,10 +78,6 @@ class AddFragment : Fragment() {
                 }
             }
 
-            addViewModel.insertNewValue(valor, quantidade)
-            addViewModel.calculaPrecoMedio()
-            addViewModel.calculoParcial()
-            addViewModel.calculoTotal()
         }
 
         builder.setNegativeButton("Cancelar") { dialog, _ -> dialog.cancel() }
@@ -154,11 +109,6 @@ class AddFragment : Fragment() {
                     quantidade = "0.0"
                 }
             }
-
-            addViewModel.removeValue(valor, quantidade)
-            addViewModel.calculaPrecoMedio()
-            addViewModel.calculoParcial()
-            addViewModel.calculoTotal()
         }
 
         builder.setNegativeButton("Cancelar") { dialog, _ -> dialog.cancel() }

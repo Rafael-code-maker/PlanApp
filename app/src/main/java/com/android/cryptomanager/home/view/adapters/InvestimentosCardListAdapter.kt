@@ -9,18 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.cryptomanager.R
 import com.android.cryptomanager.home.data.models.CryptoCard
 
-class CryptoCardListAdapter(
+class InvestimentosCardListAdapter(
     private val cryptoCard: List<CryptoCard>,
     private val listener: OnSelectOnClickListener,
 ) :
-    RecyclerView.Adapter<CryptoCardListAdapter.CryptoCardViewHolder>() {
+    RecyclerView.Adapter<InvestimentosCardListAdapter.CryptoCardViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
     ): CryptoCardViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.criptomoeda_card_view, parent, false)
+            .inflate(R.layout.investimentos_card_view, parent, false)
         return CryptoCardViewHolder(view)
     }
 

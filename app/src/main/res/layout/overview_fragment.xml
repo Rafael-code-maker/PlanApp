@@ -99,7 +99,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="20dp"
-                            android:text="@string/btc_abbreviation"
+                            android:text=""
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@+id/card_color_btc"
                             app:layout_constraintTop_toBottomOf="@+id/value_btc" />
@@ -146,7 +146,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="20dp"
-                            android:text="@string/eth_abbreviation"
+                            android:text=""
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@+id/card_color_eth"
                             app:layout_constraintTop_toBottomOf="@+id/value_eth" />
@@ -192,7 +192,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="20dp"
-                            android:text="@string/chz_abbreviation"
+                            android:text=""
                             android:textStyle="bold"
                             app:layout_constraintStart_toEndOf="@+id/card_color_chz"
                             app:layout_constraintTop_toBottomOf="@+id/value_chz" />
@@ -244,7 +244,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="@string/invested"
+                                android:text="Gasto médio mensal"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -260,11 +260,12 @@
                                 android:textAlignment="center"
                                 android:textSize="25sp"
                                 android:textStyle="bold"
+                                android:text="R$ 2570,53"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/total_invested"
-                                tools:text="@string/invested_default_value" />
+                                />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -312,7 +313,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="@string/value_on_actual_cotation"
+                                android:text="Receita atual"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -327,12 +328,13 @@
                                 android:gravity="center"
                                 android:textAlignment="center"
                                 android:textSize="25sp"
+                                android:text="R$ -586,11"
                                 android:textStyle="bold"
+                                android:textColor="@android:color/holo_red_dark"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/actual_cotation"
-                                tools:text="@string/actual_cotation_value" />
+                                app:layout_constraintTop_toBottomOf="@+id/actual_cotation" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>

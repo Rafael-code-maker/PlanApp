@@ -9,4 +9,5 @@
     <color name="light_cyan">#E0FFFF</color>
     <color name="light_orange">#ffbc40</color>
     <color name="grey_light">#CECDCD</color>
+    <color name="green_login">#7beb5b</color>
 </resources>

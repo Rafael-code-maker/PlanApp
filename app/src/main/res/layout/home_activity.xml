@@ -20,7 +20,7 @@
         android:id="@+id/bottom_navigation_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
+        android:background="@color/green_login"
         app:itemIconSize="28dp"
         app:itemIconTint="@drawable/tab_color"
         app:itemTextColor="@drawable/tab_color"

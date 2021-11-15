@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_orange"
+    android:background="@color/green_login"
     app:layoutDescription="@xml/login_fragment_scene">
 
     <com.google.android.gms.common.SignInButton
@@ -28,15 +28,14 @@
         app:layout_constraintEnd_toEndOf="@+id/signInButton"
         app:layout_constraintStart_toStartOf="@+id/signInButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_bitcoin"
-        app:tint="@color/white" />
+        app:srcCompat="@drawable/controle_de_gastos_ic" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Crypto"
+        android:text="PlanApp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -51,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Gerenciador de criptomoedas"
+        android:text="Controle de gastos"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
