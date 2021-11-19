@@ -35,4 +35,20 @@
             android:name="Crypto"
             app:argType="com.android.cryptomanager.home.data.models.CryptoCard" />
     </fragment>
+    <fragment
+        android:id="@+id/expenditureFragment2"
+        android:name="com.android.cryptomanager.home.view.fragments.ExpenditureFragment"
+        android:label="ExpenditureFragment" >
+        <argument
+            android:name="expenditurePosition"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/expendituresFragment2"
+        android:name="com.android.cryptomanager.home.view.fragments.ExpendituresFragment"
+        android:label="ExpendituresFragment" >
+        <action
+            android:id="@+id/action_expendituresFragment2_to_expenditureFragment2"
+            app:destination="@id/expenditureFragment2" />
+    </fragment>
 </navigation>
