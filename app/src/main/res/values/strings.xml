@@ -42,4 +42,9 @@
     <string name="valor_da_entrada">Valor da entrada</string>
     <string name="quantidade">Quantidade</string>
     <string name="compartilhar">Compartilhar</string>
+    <string name="real">R$</string>
+    <string name="valor">Valor:</string>
+    <string name="despesas">Despesas</string>
+    <string name="data">Data:</string>
+    <string name="descricao">Descrição:</string>
 </resources>
