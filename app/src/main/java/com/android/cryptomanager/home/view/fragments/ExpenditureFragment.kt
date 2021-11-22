@@ -30,7 +30,7 @@ class ExpenditureFragment: Fragment() {
         expenditureViewModel.expenditure.observe(viewLifecycleOwner) {
             binding.dateValue.text=it.date
             binding.description.text=it.description
-            binding.expenditurePriceValue.text=it.price
+            binding.expenditurePrice.text=it.price
             binding.expenditureName.text=it.name
         }
         expenditureViewModel.getExpenditures(arguments.expenditurePosition)

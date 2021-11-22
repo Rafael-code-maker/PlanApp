@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/expenditure_title"
+        android:id="@+id/income_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -13,15 +13,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="14dp"
         android:textSize="26sp"
-        android:text="@string/despesas"
+        android:text="@string/rendas"
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/expenditures_recycler_view"
+        android:id="@+id/incomes_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/expenditure_title"
+        app:layout_constraintTop_toBottomOf="@+id/income_title"
         android:layout_marginTop="14dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

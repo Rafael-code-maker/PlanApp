@@ -8,7 +8,8 @@
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:cardCornerRadius="24dp"
-    android:layout_margin="14dp">
+    android:layout_margin="14dp"
+    app:cardBackgroundColor="@color/grey_light">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/expenditure_item_constraint"
@@ -27,7 +28,7 @@
             android:textColor="@color/black"
             tools:text="Cartão de Credito"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/expenditure_price_value"
+                android:id="@+id/income_details_price_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/expenditure_item_name"
@@ -43,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/expenditure_item_name"
-                app:layout_constraintEnd_toStartOf="@+id/expenditure_price_value"
+                app:layout_constraintEnd_toStartOf="@+id/income_details_price_value"
                 android:text="@string/real"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="4dp"

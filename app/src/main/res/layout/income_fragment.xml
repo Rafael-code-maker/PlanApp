@@ -7,7 +7,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_margin="14dp"
-        android:id="@+id/expenditure_name"
+        android:id="@+id/income_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,8 +22,8 @@
         android:id="@+id/income_details_price_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/expenditure_name"
-        app:layout_constraintStart_toEndOf="@+id/expenditure_price_currency"
+        app:layout_constraintTop_toBottomOf="@+id/income_name"
+        app:layout_constraintStart_toEndOf="@+id/income_item_price_currency"
         android:layout_marginTop="14dp"
         android:layout_marginStart="4dp"
         android:text=""
@@ -32,11 +32,11 @@
         tools:text="100.00"/>
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/expenditure_price_currency"
+        android:id="@+id/income_item_price_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/expenditure_name"
-        app:layout_constraintStart_toEndOf="@+id/expenditure_price"
+        app:layout_constraintTop_toBottomOf="@+id/income_name"
+        app:layout_constraintStart_toEndOf="@+id/income_price"
         android:text="@string/real"
         android:layout_marginTop="14dp"
         android:layout_marginStart="14dp"
@@ -45,10 +45,10 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_margin="14dp"
-        android:id="@+id/expenditure_price"
+        android:id="@+id/income_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/expenditure_name"
+        app:layout_constraintTop_toBottomOf="@+id/income_name"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/valor"
         android:textSize="14sp"
@@ -59,7 +59,7 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/expenditure_price"
+        app:layout_constraintTop_toBottomOf="@+id/income_price"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/data"
         android:textSize="14sp"
@@ -69,7 +69,7 @@
         android:id="@+id/date_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/expenditure_price"
+        app:layout_constraintTop_toBottomOf="@+id/income_price"
         app:layout_constraintStart_toEndOf="@+id/date"
         android:text=""
         android:layout_marginTop="14dp"
