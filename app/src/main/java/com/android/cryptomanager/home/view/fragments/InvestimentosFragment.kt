@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.android.cryptomanager.R
 import com.android.cryptomanager.databinding.InvestimentosFragmentBinding
-import com.android.cryptomanager.home.data.models.CryptoCard
-import com.google.firebase.auth.FirebaseAuth
+import com.android.cryptomanager.home.data.models.DespesasRendas
+import com.android.cryptomanager.home.view.adapters.DespesasRendasListAdapter
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -17,13 +16,10 @@ class InvestimentosFragment : Fragment() {
     private var _binding: InvestimentosFragmentBinding? = null
     private val binding get() = _binding!!
 
-    var bitcoinPrice: Double = 0.0
-    var ethereumPrice: Double = 0.0
-    var chilizPrice: Double = 0.0
-
-    var bitcoinInvested: Double = 0.0
-    var ethereumInvested: Double = 0.0
-    var chilizInvested: Double = 0.0
+    val adapter = object : DespesasRendasListAdapter.OnSelectOnClickListener {
+        override fun onSelect(position: Int) {
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,33 +35,39 @@ class InvestimentosFragment : Fragment() {
 
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
+
+        binding.lista.adapter = DespesasRendasListAdapter(listaDespesas(),adapter)
     }
 
-    private fun cryptoCards(): List<CryptoCard> {
-
-        val decimalFormat = DecimalFormat("#,###.###")
-        decimalFormat.roundingMode = RoundingMode.CEILING
+    private fun listaDespesas(): List<DespesasRendas> {
 
         return listOf(
-            CryptoCard(
-                R.drawable.controle_de_gastos_ic,
-                getString(R.string.bitcoin),
-                "R$ " + decimalFormat.format(bitcoinPrice),
-                "Investido : R$ " + decimalFormat.format(bitcoinInvested),
+            DespesasRendas(
+                1,
+                "Despesa fixa",
             ),
-            CryptoCard(
-                R.drawable.logo_ethereum,
-                getString(R.string.ethereum),
-                "R$ " + decimalFormat.format(ethereumPrice),
-                "Investido : R$ " + decimalFormat.format(ethereumInvested),
+            DespesasRendas(
+                2,
+                "Despesa avulsa",
             ),
-            CryptoCard(
-                R.drawable.logo_chiliz,
-                getString(R.string.chiliz),
-                "R$ " + decimalFormat.format(chilizPrice),
-                "Investido : R$ " + decimalFormat.format(chilizInvested),
+            DespesasRendas(
+                3,
+                "Mensalidade",
+            ),
+            DespesasRendas(
+                4,
+                "Renda fixa",
+            ),
+            DespesasRendas(
+                5,
+                "Renda variável",
+            ),
+            DespesasRendas(
+                6,
+                "Renda extra",
             )
         )
+
     }
 
     override fun onDestroyView() {

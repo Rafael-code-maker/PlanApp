@@ -47,6 +47,7 @@
     <string name="despesas">Despesas</string>
     <string name="data">Data:</string>
     <string name="descricao">Descrição:</string>
-    <string name="expenditures">despesas</string>
+    <string name="expenditures">Despesas</string>
     <string name="rendas">Rendas</string>
+    <string name="nova_despesa_renda">Nova despesa/renda</string>
 </resources>
