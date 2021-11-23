@@ -5,5 +5,4 @@ data class Expenditure(
     val price: String,
     val date: String,
     val description: String,
-    val numberOfParcels: String = "1"
 )
