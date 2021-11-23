@@ -12,7 +12,6 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 
 class InvestimentosFragment : Fragment() {
-
     private var _binding: InvestimentosFragmentBinding? = null
     private val binding get() = _binding!!
 

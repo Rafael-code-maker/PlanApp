@@ -1,8 +1,6 @@
 package com.android.cryptomanager.home.presentation
 
-import com.android.cryptomanager.home.data.ExpenditureRepository
-import com.android.cryptomanager.home.data.ExpendituresRepository
-import com.android.cryptomanager.home.data.IncomeListRepository
+import com.android.cryptomanager.home.data.*
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -22,10 +20,22 @@ val homeModule = module {
     viewModel {
         IncomeListViewModel(get())
     }
+    viewModel {
+        EntradasViewModel(get())
+    }
+    viewModel {
+        SaidasViewModel(get())
+    }
     factory {
         IncomeListRepository()
     }
     viewModel {
         IncomeViewModel(get())
+    }
+    factory {
+        EntradaRepository()
+    }
+    factory {
+        SaidaRepository()
     }
 }
