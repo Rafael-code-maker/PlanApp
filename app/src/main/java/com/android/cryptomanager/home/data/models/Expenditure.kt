@@ -5,5 +5,5 @@ data class Expenditure(
     val price: String,
     val date: String,
     val description: String,
-    val numberOfParcels: Int = 1
+    val numberOfParcels: String = "1"
 )

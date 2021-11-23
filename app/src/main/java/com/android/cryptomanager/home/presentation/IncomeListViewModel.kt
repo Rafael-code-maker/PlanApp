@@ -5,26 +5,27 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.cryptomanager.home.data.ExpendituresRepository
+import com.android.cryptomanager.home.data.IncomeListRepository
 import com.android.cryptomanager.home.data.models.Expenditure
+import com.android.cryptomanager.home.data.models.Income
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class ExpendituresViewModel(
-    private val expendituresRepository: ExpendituresRepository
+class IncomeListViewModel(
+    private val incomeRepository: IncomeListRepository
 ) : ViewModel() {
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
-    private val _expendituresList = MutableLiveData<List<Expenditure>?>()
-    val expenditureList: LiveData<List<Expenditure>?> = _expendituresList
+    private val _incomesList = MutableLiveData<List<Income>?>()
+    val incomesList: LiveData<List<Income>?> = _incomesList
 
-    fun getExpenditures() {
+    fun getIncomes() {
         _loading.postValue(true)
         viewModelScope.launch {
             try{
-                val newExpenditureList = expendituresRepository.getExpenditures()
-                if(newExpenditureList!=null)
-                    _expendituresList.postValue(newExpenditureList)
+                val newIncomeList = incomeRepository.getIncomes()
+                if(newIncomeList!=null)
+                    _incomesList.postValue(newIncomeList)
             }catch (e: Exception) {
                 Log.e("error", e.toString())
             }
