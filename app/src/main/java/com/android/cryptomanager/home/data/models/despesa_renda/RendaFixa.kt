@@ -1,4 +1,9 @@
 package com.android.cryptomanager.home.data.models.despesa_renda
 
-//data class RendaFixa(
-//) : Serializable
+import java.io.Serializable
+
+data class RendaFixa(
+    var descricao : String,
+    var valor : Double?,
+    var data : String
+) : Serializable
