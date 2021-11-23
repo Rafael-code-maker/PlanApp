@@ -1,3 +1,3 @@
-# CryptoManager
+# PlanApp
 
-Projeto para ajudar a gerenciar/controlar movimentações, lucros e perdas envolvendo criptomoedas.
+Projeto para ajudar a gerenciar/controlar suas economias.
