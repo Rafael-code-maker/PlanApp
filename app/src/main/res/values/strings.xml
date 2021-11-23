@@ -50,4 +50,7 @@
     <string name="expenditures">Despesas</string>
     <string name="rendas">Rendas</string>
     <string name="nova_despesa_renda">Nova despesa/renda</string>
+    <string name="nome">Nome</string>
+    <string name="data2">Data</string>
+    <string name="descri_o">Descrição</string>
 </resources>

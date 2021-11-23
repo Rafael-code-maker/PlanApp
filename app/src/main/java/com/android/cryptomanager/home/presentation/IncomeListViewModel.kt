@@ -6,10 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.cryptomanager.home.data.IncomeListRepository
-import com.android.cryptomanager.home.data.models.Expenditure
 import com.android.cryptomanager.home.data.models.Income
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class IncomeListViewModel(
     private val incomeRepository: IncomeListRepository

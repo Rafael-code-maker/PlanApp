@@ -12,7 +12,6 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 
 class InvestimentosFragment : Fragment() {
-
     private var _binding: InvestimentosFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -44,28 +43,12 @@ class InvestimentosFragment : Fragment() {
         return listOf(
             DespesasRendas(
                 1,
-                "Despesa fixa",
+                "Entrada",
             ),
             DespesasRendas(
                 2,
-                "Despesa avulsa",
+                "Saída",
             ),
-            DespesasRendas(
-                3,
-                "Mensalidade",
-            ),
-            DespesasRendas(
-                4,
-                "Renda fixa",
-            ),
-            DespesasRendas(
-                5,
-                "Renda variável",
-            ),
-            DespesasRendas(
-                6,
-                "Renda extra",
-            )
         )
 
     }

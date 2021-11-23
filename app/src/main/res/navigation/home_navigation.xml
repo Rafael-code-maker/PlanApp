@@ -15,23 +15,12 @@
         android:name="com.android.cryptomanager.home.view.fragments.InvestimentosFragment"
         android:label="FragmentoDois"
         tools:layout="@layout/investimentos_fragment">
-        <action
-            android:id="@+id/action_investimentosFragment_to_addFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:destination="@id/addFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/addFragment"
-        android:name="com.android.cryptomanager.home.view.fragments.AddFragment"
-        android:label="addFragment"
-        tools:layout="@layout/add_fragment" />
     <fragment
         android:id="@+id/expenditureFragment2"
         android:name="com.android.cryptomanager.home.view.fragments.ExpenditureFragment"
-        android:label="ExpenditureFragment">
+        android:label="ExpenditureFragment"
+        tools:layout="@layout/expenditure_fragment">
         <argument
             android:name="expenditurePosition"
             app:argType="integer" />
@@ -39,7 +28,8 @@
     <fragment
         android:id="@+id/expendituresFragment2"
         android:name="com.android.cryptomanager.home.view.fragments.ExpendituresFragment"
-        android:label="ExpendituresFragment">
+        android:label="ExpendituresFragment"
+        tools:layout="@layout/expenditures_fragment">
         <action
             android:id="@+id/action_expendituresFragment2_to_expenditureFragment2"
             app:destination="@id/expenditureFragment2" />
@@ -47,7 +37,8 @@
     <fragment
         android:id="@+id/incomeListFragment"
         android:name="com.android.cryptomanager.home.view.fragments.IncomeListFragment"
-        android:label="IncomeListFragment">
+        android:label="IncomeListFragment"
+        tools:layout="@layout/income_list_fragment">
         <action
             android:id="@+id/action_incomeListFragment_to_incomeFragment"
             app:destination="@id/incomeFragment" />
@@ -55,7 +46,8 @@
     <fragment
         android:id="@+id/incomeFragment"
         android:name="com.android.cryptomanager.home.view.fragments.IncomeFragment"
-        android:label="IncomeFragment">
+        android:label="IncomeFragment"
+        tools:layout="@layout/income_fragment">
         <argument
             android:name="position"
             app:argType="integer" />
