@@ -1,8 +1,8 @@
 package com.android.cryptomanager.home.data.models
 
 data class Income(
-    val name: String,
-    val value: String,
-    val date: String,
-    val description: String
+    val name: String?=null,
+    val value: String?=null,
+    val date: String?=null,
+    val description: String?=null
 )

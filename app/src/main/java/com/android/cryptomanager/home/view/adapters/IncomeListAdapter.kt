@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.cryptomanager.R
 import com.android.cryptomanager.home.data.models.Expenditure
 import com.android.cryptomanager.home.data.models.Income
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
 
 class IncomeListAdapter(
@@ -36,16 +37,16 @@ class IncomeListAdapter(
         private val incomeName =
             itemView.findViewById<MaterialTextView>(R.id.income_item_name)
         private val incomePrice =
-            itemView.findViewById<MaterialTextView>(R.id.expenditure_item_name)
-        private val expenditureCardView =
-            itemView.findViewById<MaterialTextView>(R.id.expenditure_item_card_view)
+            itemView.findViewById<MaterialTextView>(R.id.income_price_value)
+        private val incomeCardView =
+            itemView.findViewById<MaterialCardView>(R.id.income_item_card_view)
 
         fun bindListItem(
             incomes: Income, incomesListener: IncomeListener, position: Int
         ) {
             incomeName.text=incomes.name
             incomePrice.text=incomes.value
-            expenditureCardView.setOnClickListener {
+            incomeCardView.setOnClickListener {
                 incomesListener.incomeSelectListener(position)
             }
         }

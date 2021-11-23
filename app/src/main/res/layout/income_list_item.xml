@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/expenditure_item_card_view"
+    android:id="@+id/income_item_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="14dp"
-    app:cardBackgroundColor="@color/grey_light"
+    app:cardBackgroundColor="@color/orange"
     app:cardCornerRadius="24dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -66,4 +66,4 @@
             app:layout_constraintTop_toBottomOf="@+id/income_item_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

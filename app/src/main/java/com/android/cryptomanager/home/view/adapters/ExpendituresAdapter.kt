@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.cryptomanager.R
 import com.android.cryptomanager.home.data.models.Expenditure
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
 
 class ExpendituresAdapter (
@@ -35,9 +36,9 @@ class ExpendituresAdapter (
         private val expenditureName =
             itemView.findViewById<MaterialTextView>(R.id.expenditure_item_name)
         private val expenditurePrice =
-            itemView.findViewById<MaterialTextView>(R.id.expenditure_item_name)
+            itemView.findViewById<MaterialTextView>(R.id.expenditure_details_price_value)
         private val expenditureCardView =
-            itemView.findViewById<MaterialTextView>(R.id.expenditure_item_card_view)
+            itemView.findViewById<MaterialCardView>(R.id.expenditure_item_card_view)
 
         fun bindListItem(
             expenditure: Expenditure, expenditureListener: ExpenditureListener, position: Int

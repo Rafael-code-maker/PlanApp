@@ -29,8 +29,8 @@ class ExpenditureFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         expenditureViewModel.expenditure.observe(viewLifecycleOwner) {
             binding.dateValue.text=it.date
-            binding.description.text=it.description
-            binding.expenditurePrice.text=it.price
+            binding.descriptionValue.text=it.description
+            binding.expenditureDetailsPriceValue.text=it.price
             binding.expenditureName.text=it.name
         }
         expenditureViewModel.getExpenditures(arguments.expenditurePosition)
