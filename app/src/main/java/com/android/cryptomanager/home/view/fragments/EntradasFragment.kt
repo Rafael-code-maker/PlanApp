@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android.cryptomanager.databinding.EntradasFragmentBinding
 import com.android.cryptomanager.home.data.models.Income
 import com.android.cryptomanager.home.presentation.EntradasViewModel
@@ -20,8 +21,9 @@ class EntradasFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    ): View {
+        _binding = EntradasFragmentBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,6 +38,7 @@ class EntradasFragment : Fragment() {
                     binding.exitDescription.text.toString()
                 )
             )
+            findNavController().navigateUp()
         }
     }
 

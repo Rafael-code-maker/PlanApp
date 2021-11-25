@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.android.cryptomanager.R
 import com.android.cryptomanager.databinding.InvestimentosFragmentBinding
 import com.android.cryptomanager.home.data.models.DespesasRendas
 import com.android.cryptomanager.home.view.adapters.DespesasRendasListAdapter
@@ -17,6 +19,11 @@ class InvestimentosFragment : Fragment() {
 
     val adapter = object : DespesasRendasListAdapter.OnSelectOnClickListener {
         override fun onSelect(position: Int) {
+            if (position == 0){
+                findNavController().navigate(R.id.action_investimentosFragment_to_entradasFragment)
+            }else{
+                findNavController().navigate(R.id.action_investimentosFragment_to_saidasFragment)
+            }
         }
     }
 
@@ -47,7 +54,7 @@ class InvestimentosFragment : Fragment() {
             ),
             DespesasRendas(
                 2,
-                "Saída",
+                "Despesa",
             ),
         )
 

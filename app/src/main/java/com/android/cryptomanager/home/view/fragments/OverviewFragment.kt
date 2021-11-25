@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.android.cryptomanager.databinding.OverviewFragmentBinding
+import com.android.cryptomanager.home.presentation.EntradasViewModel
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -22,6 +23,8 @@ class OverviewFragment : Fragment() {
 
     private var _binding: OverviewFragmentBinding? = null
     private val binding get() = _binding!!
+
+    private val entradasViewModel by viewModel<EntradasViewModel>()
 
     var pieChart: PieChart? = null
 
@@ -41,7 +44,7 @@ class OverviewFragment : Fragment() {
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
         initPieChart()
-        showPieChart(758.25,856.25,985.3)
+        showPieChart(entradasViewModel.somaEntradas(),entradasViewModel.somaSaidas())
     }
 
     private fun initPieChart() {
@@ -66,7 +69,7 @@ class OverviewFragment : Fragment() {
         pieChart!!.setHoleColor(Color.parseColor("#FFFFFF"))
     }
 
-    private fun showPieChart(bitcoin: Double, ethereum: Double, chiliz: Double) {
+    private fun showPieChart(bitcoin: Double, ethereum: Double) {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""
 
@@ -77,8 +80,6 @@ class OverviewFragment : Fragment() {
         val typeAmountMap: MutableMap<String, Double> = HashMap()
         typeAmountMap["Bitcoin"] = bitcoin
         typeAmountMap["Ethereum"] = ethereum
-        typeAmountMap["Chiliz"] = chiliz
-
 
         //initializing colors for the entries
         val colors: ArrayList<Int> = ArrayList()

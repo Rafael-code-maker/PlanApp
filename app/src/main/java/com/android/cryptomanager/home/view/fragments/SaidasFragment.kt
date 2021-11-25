@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.android.cryptomanager.databinding.EntradasFragmentBinding
 import com.android.cryptomanager.databinding.SaidasFragmentBinding
 import com.android.cryptomanager.home.data.models.Expenditure
 import com.android.cryptomanager.home.presentation.SaidasViewModel
@@ -20,8 +22,9 @@ class SaidasFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    ): View {
+        _binding = SaidasFragmentBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,6 +38,7 @@ class SaidasFragment : Fragment() {
                     binding.exitDescription.text.toString()
                 )
             )
+            findNavController().navigateUp()
         }
     }
 
