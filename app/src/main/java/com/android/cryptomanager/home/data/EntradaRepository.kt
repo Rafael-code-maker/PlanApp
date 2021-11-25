@@ -55,10 +55,8 @@ class EntradaRepository {
             val lista = databaseReference.child("expenditures")
                 .get().await().getValue<List<Expenditure>>()
 
-            if (lista != null) {
-                lista.forEach {
-                    sum += it.price?.toDouble()!!
-                }
+            lista?.forEach {
+                sum += it.price?.toDouble()!!
             }
         }
         return sum
