@@ -75,7 +75,7 @@ class OverviewFragment : Fragment() {
 
         binding.valueBtc.text = bitcoin.toString()
         binding.valueEth.text = ethereum.toString()
-        binding.actualCotation.text = (bitcoin - ethereum).toString()
+        binding.totalActualCotation.text = (bitcoin - ethereum).toString()
         binding.coinPrice.text = bitcoin.toString()
 
         val decimalFormat = DecimalFormat("#,###.###")
