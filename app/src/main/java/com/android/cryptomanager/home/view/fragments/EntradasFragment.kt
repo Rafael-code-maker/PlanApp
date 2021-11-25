@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.cryptomanager.databinding.EntradasFragmentBinding
@@ -38,6 +39,11 @@ class EntradasFragment : Fragment() {
                     binding.exitDescription.text.toString()
                 )
             )
+        }
+        entradasViewModel.loading.observe(viewLifecycleOwner){
+            binding.loading.isVisible=it
+        }
+        entradasViewModel.insertionFinished.observe(viewLifecycleOwner){
             findNavController().navigateUp()
         }
     }
