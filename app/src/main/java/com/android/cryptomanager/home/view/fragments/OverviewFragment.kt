@@ -73,6 +73,11 @@ class OverviewFragment : Fragment() {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""
 
+        binding.valueBtc.text = bitcoin.toString()
+        binding.valueEth.text = ethereum.toString()
+        binding.actualCotation.text = (bitcoin - ethereum).toString()
+        binding.coinPrice.text = bitcoin.toString()
+
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
 
