@@ -13,8 +13,21 @@ class EntradasViewModel(private val entradaRepository: EntradaRepository) : View
     val insertionFinished: LiveData<Unit> = _insertionFinished
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
+    private val _somaEntrada = MutableLiveData<Double>()
+    val somaEntrada: LiveData<Double> = _somaEntrada
+    private val _somaSaida = MutableLiveData<Double>()
+    val somaSaida: LiveData<Double> = _somaSaida
 
-    fun saveEntrie(income : Income){
+    init {
+        _loading.postValue(true)
+        viewModelScope.launch {
+            somaEntradas()
+            somaSaidas()
+            _loading.postValue(false)
+        }
+    }
+
+    fun saveEntrie(income: Income) {
         _loading.postValue(true)
         viewModelScope.launch {
             entradaRepository.addEntrada(income)
@@ -23,19 +36,15 @@ class EntradasViewModel(private val entradaRepository: EntradaRepository) : View
         }
     }
 
-    fun somaEntradas(): Double {
+    suspend fun somaEntradas() {
         var sum = 0.0
-        viewModelScope.launch {
-            sum =  entradaRepository.somaEntradas()
-        }
-        return sum
+        sum = entradaRepository.somaEntradas()
+        _somaEntrada.postValue(sum)
     }
 
-    fun somaSaidas(): Double {
+    suspend fun somaSaidas() {
         var sum = 0.0
-        viewModelScope.launch {
-           sum =  entradaRepository.somaSaidas()
-        }
-        return sum
+        sum = entradaRepository.somaSaidas()
+        _somaSaida.postValue(sum)
     }
 }

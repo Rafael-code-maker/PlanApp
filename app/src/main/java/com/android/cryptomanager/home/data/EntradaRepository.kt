@@ -1,5 +1,6 @@
 package com.android.cryptomanager.home.data
 
+import android.util.Log
 import com.android.cryptomanager.home.data.models.Expenditure
 import com.android.cryptomanager.home.data.models.Income
 import com.google.firebase.auth.FirebaseAuth
@@ -43,6 +44,7 @@ class EntradaRepository {
                 }
             }
         }
+        Log.d("Soma Entrada",sum.toString())
         return sum
     }
 
@@ -59,6 +61,7 @@ class EntradaRepository {
                 sum += it.price?.toDouble()!!
             }
         }
+        Log.d("Soma Saída",sum.toString())
         return sum
     }
 

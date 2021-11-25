@@ -23,6 +23,8 @@ class OverviewFragment : Fragment() {
 
     private var _binding: OverviewFragmentBinding? = null
     private val binding get() = _binding!!
+    private var valor1 : Double? = 0.0
+    private var valor2 : Double? = 0.0
 
     private val entradasViewModel by viewModel<EntradasViewModel>()
 
@@ -37,14 +39,33 @@ class OverviewFragment : Fragment() {
         pieChart = binding.pieChartView
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
+
+        entradasViewModel.loading.observe(viewLifecycleOwner){
+            if(!it){
+                updateChart(valor1!!,valor2!!)
+            }
+        }
+
+        entradasViewModel.somaSaida.observe(viewLifecycleOwner){
+            valor1 = it
+            binding.valueBtc.text = it.toString()
+        }
+
+        entradasViewModel.somaEntrada.observe(viewLifecycleOwner){
+            valor2 = it
+            binding.valueEth.text = it.toString()
+        }
+
+    }
+
+    private fun updateChart(a : Double, b : Double){
         initPieChart()
-        showPieChart(entradasViewModel.somaEntradas(),entradasViewModel.somaSaidas())
+        showPieChart(a,b)
     }
 
     private fun initPieChart() {
@@ -73,8 +94,8 @@ class OverviewFragment : Fragment() {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""
 
-        binding.valueBtc.text = bitcoin.toString()
-        binding.valueEth.text = ethereum.toString()
+
+
         binding.totalActualCotation.text = (bitcoin - ethereum).toString()
         binding.coinPrice.text = bitcoin.toString()
 
@@ -90,7 +111,6 @@ class OverviewFragment : Fragment() {
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#FF8C00"))
         colors.add(Color.parseColor("#ffbc40"))
-        colors.add(Color.parseColor("#FFA500"))
 
         //input data and fit data into pie chart entry
         for (type in typeAmountMap.keys) {
