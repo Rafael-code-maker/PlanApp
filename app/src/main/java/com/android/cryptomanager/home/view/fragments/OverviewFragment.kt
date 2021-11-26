@@ -53,12 +53,13 @@ class OverviewFragment : Fragment() {
 
         entradasViewModel.somaSaida.observe(viewLifecycleOwner){
             valor1 = it
-            binding.valueBtc.text = it.toString()
+            binding.valueEth.text = "R$ -"+ it.toString()
         }
 
         entradasViewModel.somaEntrada.observe(viewLifecycleOwner){
             valor2 = it
-            binding.valueEth.text = it.toString()
+            binding.valueBtc.text = it.toString()
+
         }
 
     }
@@ -97,7 +98,7 @@ class OverviewFragment : Fragment() {
 
 
         binding.totalActualCotation.text = (bitcoin - ethereum).toString()
-        binding.coinPrice.text = bitcoin.toString()
+        binding.coinPrice.text = (bitcoin/12).toString()
 
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
