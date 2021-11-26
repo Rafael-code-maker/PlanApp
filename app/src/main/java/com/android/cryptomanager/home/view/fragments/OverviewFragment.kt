@@ -2,11 +2,13 @@ package com.android.cryptomanager.home.view.fragments
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.android.cryptomanager.databinding.OverviewFragmentBinding
+import com.android.cryptomanager.home.presentation.EntradasViewModel
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -22,6 +24,10 @@ class OverviewFragment : Fragment() {
 
     private var _binding: OverviewFragmentBinding? = null
     private val binding get() = _binding!!
+    private var valor1 : Double? = 0.0
+    private var valor2 : Double? = 0.0
+
+    private val entradasViewModel by viewModel<EntradasViewModel>()
 
     var pieChart: PieChart? = null
 
@@ -34,14 +40,34 @@ class OverviewFragment : Fragment() {
         pieChart = binding.pieChartView
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
+
+        entradasViewModel.loading.observe(viewLifecycleOwner){
+            if(!it){
+                updateChart(valor1!!,valor2!!)
+            }
+        }
+
+        entradasViewModel.somaSaida.observe(viewLifecycleOwner){
+            valor1 = it
+            binding.valueEth.text = "R$ -"+ it.toString()
+        }
+
+        entradasViewModel.somaEntrada.observe(viewLifecycleOwner){
+            valor2 = it
+            binding.valueBtc.text = it.toString()
+
+        }
+
+    }
+
+    private fun updateChart(a : Double, b : Double){
         initPieChart()
-        showPieChart(758.25,856.25,985.3)
+        showPieChart(a,b)
     }
 
     private fun initPieChart() {
@@ -66,25 +92,28 @@ class OverviewFragment : Fragment() {
         pieChart!!.setHoleColor(Color.parseColor("#FFFFFF"))
     }
 
-    private fun showPieChart(bitcoin: Double, ethereum: Double, chiliz: Double) {
+    private fun showPieChart(saida: Double, entrada: Double) {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""
+
+        Log.d("ethereum", entrada.toString())
+        Log.d("bitcoin", saida.toString())
+
+        binding.totalActualCotation.text = (entrada - saida).toString()
+        binding.coinPrice.text = (saida/12).toString()
 
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
 
         //initializing data
         val typeAmountMap: MutableMap<String, Double> = HashMap()
-        typeAmountMap["Bitcoin"] = bitcoin
-        typeAmountMap["Ethereum"] = ethereum
-        typeAmountMap["Chiliz"] = chiliz
-
+        typeAmountMap["Bitcoin"] = saida
+        typeAmountMap["Ethereum"] = entrada
 
         //initializing colors for the entries
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#FF8C00"))
         colors.add(Color.parseColor("#ffbc40"))
-        colors.add(Color.parseColor("#FFA500"))
 
         //input data and fit data into pie chart entry
         for (type in typeAmountMap.keys) {

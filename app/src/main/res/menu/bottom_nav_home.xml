@@ -9,6 +9,16 @@
     <item
         android:id="@+id/investimentosFragment"
         android:icon="@drawable/ic_investimentos"
-        android:title="@string/investiments"
+        android:title="@string/nova_despesa_renda"
+        app:hintEnabled="false" />
+    <item
+        android:id="@+id/expendituresFragment2"
+        android:icon="@drawable/ic_investimentos"
+        android:title="@string/expenditures"
+        app:hintEnabled="false" />
+    <item
+        android:id="@+id/incomeListFragment"
+        android:icon="@drawable/ic_investimentos"
+        android:title="@string/rendas"
         app:hintEnabled="false" />
 </menu>
