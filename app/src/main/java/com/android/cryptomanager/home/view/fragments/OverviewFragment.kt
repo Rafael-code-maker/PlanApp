@@ -2,6 +2,7 @@ package com.android.cryptomanager.home.view.fragments
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -91,22 +92,23 @@ class OverviewFragment : Fragment() {
         pieChart!!.setHoleColor(Color.parseColor("#FFFFFF"))
     }
 
-    private fun showPieChart(bitcoin: Double, ethereum: Double) {
+    private fun showPieChart(saida: Double, entrada: Double) {
         val pieEntries: ArrayList<PieEntry> = ArrayList()
         val label = ""
 
+        Log.d("ethereum", entrada.toString())
+        Log.d("bitcoin", saida.toString())
 
-
-        binding.totalActualCotation.text = (bitcoin - ethereum).toString()
-        binding.coinPrice.text = (bitcoin/12).toString()
+        binding.totalActualCotation.text = (entrada - saida).toString()
+        binding.coinPrice.text = (saida/12).toString()
 
         val decimalFormat = DecimalFormat("#,###.###")
         decimalFormat.roundingMode = RoundingMode.CEILING
 
         //initializing data
         val typeAmountMap: MutableMap<String, Double> = HashMap()
-        typeAmountMap["Bitcoin"] = bitcoin
-        typeAmountMap["Ethereum"] = ethereum
+        typeAmountMap["Bitcoin"] = saida
+        typeAmountMap["Ethereum"] = entrada
 
         //initializing colors for the entries
         val colors: ArrayList<Int> = ArrayList()
